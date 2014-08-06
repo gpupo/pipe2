@@ -5,7 +5,7 @@ namespace Gpupo\Pipe2;
 class Convert extends ConverterAbstract
 {
     protected $config = array(
-        'field'     => array(
+        'field' => array(
             'title',
             'description',
             'gtin',
@@ -13,6 +13,7 @@ class Convert extends ConverterAbstract
             'product_type',
             'brand',
             'size',
+            'color',
         ),
         'attr' => array(
             'link',
