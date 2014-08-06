@@ -1,0 +1,12 @@
+{
+    "name": "gpupo/pipe2",
+    "description": "Convert Google Shopping XML format to XMLPipe2 format",
+    "keywords": ["sphinx", "xml", "xmlpipe2"],
+    "license": "MIT",
+    "require": {
+        "symfony/console": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "Gpupo\\Pipe2": "src" }
+    }
+}
