@@ -35,9 +35,7 @@ Test (CentOs sintaxe):
 
     service searchd start
     /usr/bin/indexer --rotate --all
-
-
-
+    search foo
 
 ## Requirements
 
@@ -69,10 +67,10 @@ Then, just run ``pipe2``.
 
 ## Todo
 
-- [] convert remote files
-- [] deal with unexpected problems
-- [] deal with gz compression
-- []
+- [ ] convert remote files
+- [ ] deal with unexpected problems
+- [ ] deal with gz compression
+- [ ]
 
 ## License
 
