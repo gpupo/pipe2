@@ -9,37 +9,38 @@ class Document extends \DOMDocument
 {
     public $docset;
 
-    public function __construct($config, $dataXml)
+    public function __construct(Array $schema, $dataXml)
     {
         parent::__construct();
 
         $this->formatOutput = true;
         $this->encoding = 'utf-8';
-
-        $this->docset = $this->createElement( "sphinx:docset" );
+        $this->docset = $this->createElement("sphinx:docset");
         $this->appendChild( $this->docset );
-        $sphinx_schema = $this->createElement( "sphinx:schema" );
+        $elements = $this->createElement("sphinx:schema");
 
-        foreach ($dataXml as $data) {
-        if ($data['tag']!='item') {
-        continue;
-        }
-        foreach ($data['item'] as $tags) {
-            if ($tags['type']=='open') {
-                continue;
+        foreach ($schema as $type => $list) {
+            foreach($list as $key => $prop) {
+                $elements->appendChild($this->factoryTag($type, $key, $prop));
             }
-            if (in_array($tags['tag'], $config['field'])) {
-                $type = 'sphinx:field';
-            } else {
-                $type = 'sphinx:attr';
-            }
-            $tag = $this->createElement($type);
-            $tag->setAttribute('name', $tags['tag']);
-            $sphinx_schema->appendChild( $tag );
-        }
-        break;
         }
 
-        $this->docset->appendChild( $sphinx_schema );
+        $this->docset->appendChild($elements);
+    }
+
+    protected function factoryTag($type, $key, $prop)
+    {
+        $tag = $this->createElement('sphinx:' . $type);
+
+        if (is_array($prop)) {
+            $tag->setAttribute('name', $key);
+            foreach($prop as $k => $v) {
+                $tag->setAttribute($k, $v);
+            }
+        } else {
+            $tag->setAttribute('name', $prop);
+        }
+
+        return $tag;
     }
 }
