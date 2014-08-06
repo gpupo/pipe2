@@ -8,12 +8,12 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
     ./pipe2.phar convert:google data/google-shopping-sample.xml
 
 ## Sphinx Search Index Example:
-
-source xml
-{
-    type = xmlpipe
-    xmlpipe_command = /usr/local/bin/pipe2 convert:google data/google-shopping-sample.xml
-}
+    
+    source xml
+    {
+        type = xmlpipe
+        xmlpipe_command = /usr/local/bin/pipe2 convert:google data/google-shopping-sample.xml
+    }
 
 ## Requirements
 
