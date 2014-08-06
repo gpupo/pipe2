@@ -8,11 +8,11 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
     ./pipe2.phar convert:google data/google-shopping-sample.xml
 
 ## Sphinx Search Index Example:
-    
+
     source xml
     {
         type = xmlpipe
-        xmlpipe_command = /usr/local/bin/pipe2 convert:google data/google-shopping-sample.xml
+        xmlpipe_command = /usr/local/bin/pipe2 convert:google /tmp/google-shopping-sample.xml
     }
 
 ## Requirements
@@ -41,6 +41,11 @@ then:
     $ sudo chmod a+x /usr/local/bin/pipe2
 
 Then, just run ``pipe2``.
+
+## Todo
+
+- [] convert remote files
+- [] deal with unexpected problems
 
 ## License
 
