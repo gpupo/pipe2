@@ -4,7 +4,8 @@
     "keywords": ["sphinx", "xml", "xmlpipe2"],
     "license": "MIT",
     "require": {
-        "symfony/console": "dev-master"
+        "symfony/console": "dev-master",
+        "ext-xml": "*"
     },
     "autoload": {
         "psr-0": { "Gpupo\\Pipe2": "src" }
