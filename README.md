@@ -70,7 +70,7 @@ Then, just run ``pipe2``.
 - [ ] convert remote files
 - [ ] deal with unexpected problems
 - [ ] deal with gz compression
-- [ ]
+
 
 ## License
 
