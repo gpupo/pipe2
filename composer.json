@@ -5,9 +5,11 @@
     "license": "MIT",
     "require": {
         "symfony/console": "dev-master",
-        "ext-xml": "*"
+        "ext-xml": "*",
+        "gpupo/common-schema": "dev-master"
     },
     "autoload": {
         "psr-0": { "Gpupo\\Pipe2": "src" }
-    }
+    },
+    "minimum-stability": "dev"
 }
