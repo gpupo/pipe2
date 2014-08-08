@@ -23,8 +23,23 @@ class Command extends CommandAbstract
             ->addOption(
                 'output',
                 null,
-                InputOption::VALUE_NONE,
-                'output filename. Stder s default'
+                InputOption::VALUE_OPTIONAL,
+                'output filename',
+                'stder'
+            )
+            ->addOption(
+                'channel',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'channel name for fill channel item field',
+                'xml'
+            )
+            ->addOption(
+                'format',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'format output',
+                false
             )
         ;
     }
@@ -33,8 +48,10 @@ class Command extends CommandAbstract
     {
         $inputFile = $input->getArgument('file');
         $outputFile = $input->getOption('output');
-        $convert = new Convert($inputFile, $outputFile);
+        $channel = $input->getOption('channel');
+        $formatOutput = ($input->getOption('format') == 'true') ? true : false;
+        $convert = new Converter\GoogleConverter($inputFile, $outputFile, $channel, $formatOutput);
 
-        $output->writeln($convert->execute());
+        $output->writeln($convert->execute()->getDocument()->saveXml());
     }
 }

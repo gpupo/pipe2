@@ -7,6 +7,12 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
     ./pipe2.phar convert:google data/google-shopping-sample.xml
 
+
+## Add Channel name
+
+    ./pipe2.phar convert:google --channel=amazon  data/google-shopping-min-sample.xml
+
+
 ## Sphinx Search Index Example:
 
     source xmlSource
