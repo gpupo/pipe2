@@ -36,7 +36,6 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
     }
 
 
-
 Test (CentOs sintaxe):
 
     service searchd start
@@ -70,6 +69,31 @@ then:
     $ sudo chmod a+x /usr/local/bin/pipe2
 
 Then, just run ``pipe2``.
+
+
+## Help usage
+
+    ./pipe2.phar help convert:google
+
+Output:
+
+    Usage:
+     convert:google [--output[="..."]] [--channel[="..."]] [--format[="..."]] file
+
+    Arguments:
+     file                  Google Xml file path
+
+    Options:
+     --output              output filename (default: "stder")
+     --channel             channel name for fill channel item field (default: "xml")
+     --format              format output (default: false)
+     --help (-h)           Display this help message.
+     --quiet (-q)          Do not output any message.
+     --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+     --version (-V)        Display this application version.
+     --ansi                Force ANSI output.
+     --no-ansi             Disable ANSI output.
+     --no-interaction (-n) Do not ask any interactive question.
 
 ## Todo
 
