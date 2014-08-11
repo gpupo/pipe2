@@ -5,19 +5,19 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
 ## Simple usage:
 
-    ./pipe2.phar convert:google data/google-shopping-sample.xml
+    ./pipe2.phar convert data/google-shopping-sample.xml
 
 
 ## Add Channel name
 
-    ./pipe2.phar convert:google --channel=amazon  data/google-shopping-min-sample.xml
+    ./pipe2.phar convert --channel=amazon  data/google-shopping-min-sample.xml
 
 ### Acme Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
  and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
 
-    ./bin/main convert:google --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
+    ./bin/main convert --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 
 ## Sphinx Search Index Example
@@ -25,7 +25,7 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     source acmeSource
     {
         type = xmlpipe
-        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=acme /tmp/data/acme.googleshopping.xm
+        xmlpipe_command = /usr/local/bin/pipe2 convert --channel=acme /tmp/data/acme.googleshopping.xml
     }
 
     index acmeIndex
@@ -44,34 +44,17 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
 
 ## Sphinx Search config file
 
-see ``data/sphinx.sample.conf``
+see ``data/sphinx.sample.conf`` and ``bin/make-sphinx-conf-example.sh``
 
 
 ## Test
 
 CentOs sintaxe using ``data/sphinx.sample.conf``:
 
-
-    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/sphinx.sample.conf -O /etc/sphinx/sphinx.conf;
-
-    mkdir -p /tmp/data/;
-    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/acme.googleshopping.xml -O /tmp/data/acme.googleshopping.xml;
-    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/foo.googleshopping.xml -O /tmp/data/foo.googleshopping.xml;
-
-    /usr/bin/indexer --rotate --all;
-
-    service searchd start;
-
-    search -i acmeIndex anvil
-    search -i fooIndex foo
-
-    indexer --merge main fooIndex
-
-
-
-
-    search -i main foo
-    search -i main acme
+    search -i acmeIndex anvil; # results:1
+    search -i fooIndex foo; # results:1
+    search -i main foo; # results:1
+    search -i main acme; # results:1
 
 ## Requirements
 
@@ -102,22 +85,22 @@ then:
 Then, just run ``pipe2``.
 
 
-## Help usage
+# Help
 
-    ./pipe2.phar help convert:google
+## Usage:
 
-Output:
+    convert [--format[="..."]] [--output[="..."]] [--channel[="..."]] [--pretty[="..."]] file
 
-    Usage:
-     convert:google [--output[="..."]] [--channel[="..."]] [--format[="..."]] file
+## Arguments:
 
-    Arguments:
-     file                  Google Xml file path
+     file                  Xml file path
 
-    Options:
-     --output              output filename (default: "stder")
-     --channel             channel name for fill channel item field (default: "xml")
-     --format              format output (default: false)
+## Options
+
+     --format              Input Xml Format (default: "google")
+     --output              Output filename (default: "stder")
+     --channel             Channel name for fill channel item field (default: "xml")
+     --pretty              Nicely formats output with indentation and extra space (default: false)
      --help (-h)           Display this help message.
      --quiet (-q)          Do not output any message.
      --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
@@ -125,6 +108,7 @@ Output:
      --ansi                Force ANSI output.
      --no-ansi             Disable ANSI output.
      --no-interaction (-n) Do not ask any interactive question.
+
 
 ## Todo
 
