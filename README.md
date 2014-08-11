@@ -44,12 +44,8 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
 
 ## Sphinx Search config file
 
-see ``data/sphinx.sample.conf`` and ``bin/make-sphinx-conf-example.sh``
-
-
-## Test
-
-CentOs sintaxe using ``data/sphinx.sample.conf``:
+1. see ``data/sphinx.sample.conf`` and ``bin/make-sphinx-conf-example.sh`
+2. test:
 
     search -i acmeIndex anvil; # results:1
     search -i fooIndex foo; # results:1
@@ -72,11 +68,11 @@ Download the ``pipe2.phar`` file and store it somewhere on your computer.
 You can run these commands to easily access ``pipe2`` from anywhere on
 your system:
 
-    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.1/pipe2.phar -O /usr/local/bin/pipe2
+    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.2/pipe2.phar -O /usr/local/bin/pipe2
 
 or with curl:
 
-    $ sudo curl https://github.com/gpupo/pipe2/releases/download/v0.1/pipe2.phar -o /usr/local/bin/pipe2
+    $ sudo curl https://github.com/gpupo/pipe2/releases/download/v0.2/pipe2.phar -o /usr/local/bin/pipe2
 
 then:
 
