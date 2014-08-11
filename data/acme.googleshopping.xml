@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+    <channel>
+        <title>Acme Corporation</title>
+        <description>A fictional company originating in Looney Tunes cartoons, later a generic fictional company name</description>
+        <link>http://www.webcitation.org/5km8LfyAw</link>
+        <item>
+            <g:id>292</g:id>
+            <title><![CDATA[Acme Anvil]]></title>
+            <description><![CDATA[An anvil is a basic tool, a block with a hard surface on which another object is struck.
+             The block is as massive as it is practical, because the higher the inertia of the anvil, the more efficiently
+              it causes the energy of the striking tool to be transferred to the work piece.
+               In most cases the anvil is used as a forging tool. Before the advent of modern welding technology, it was a primary tool of metal workers.
+The great majority of modern anvils are made from steel, as well as cast iron or a combination of iron and steel.
+Because anvils are very ancient tools and were at one time very commonplace, they have acquired symbolic meaning beyond their use as utilitarian objects.
+The principle of the anvil also is of particular interest in biology and in ethology; the anvil being in principle one
+ of the most basic forms of tool, its application occurs particularly widely in living organisms.]]></description>
+            <g:google_product_category><![CDATA[Tools]]></g:google_product_category>
+            <g:product_type><![CDATA[Tools]]></g:product_type>
+            <link><![CDATA[http://en.wikipedia.org/wiki/Anvil]]></link>
+            <g:image_link><![CDATA[http://img42.com/kaUvB+]]></g:image_link>
+            <g:condition><![CDATA[new]]></g:condition>
+            <g:availability><![CDATA[in stock]]></g:availability>
+            <g:price>329.00</g:price>
+            <g:sale_price>289.52</g:sale_price>
+            <g:sale_price_effective_date>2014-08-04T18:07-0300/2014-08-06T18:07-0300</g:sale_price_effective_date>
+            <g:brand><![CDATA[Acme]]></g:brand>
+            <g:gtin>3360372058861</g:gtin>
+            <g:mpn>292</g:mpn>
+            <g:gender><![CDATA[unisex]]></g:gender>
+            <g:age_group><![CDATA[adult]]></g:age_group>
+            <g:size><![CDATA[50ml]]></g:size>
+            <g:shipping_weight>10.30 kg</g:shipping_weight>
+            <g:online_only>y</g:online_only>
+            <g:installment>
+                <g:months>12</g:months>
+                <g:amount>24.13</g:amount>
+            </g:installment>
+            <g:product_review_count>14</g:product_review_count>
+            <g:product_review_average>5</g:product_review_average>
+        </item>
+    </channel>
+</rss>
