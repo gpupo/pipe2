@@ -10,15 +10,14 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
 ## Add Channel name
 
-    ./pipe2.phar convert --channel=amazon  data/google-shopping-min-sample.xml
+    ./pipe2.phar convert --channel=amazon data/google-shopping-min-sample.xml
 
 ### Acme Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
  and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
 
-    ./bin/main convert --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
-
+    ./bin/main convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 ## Sphinx Search Index Example
 
@@ -45,12 +44,6 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
 ## Sphinx Search config file
 
 1. see ``data/sphinx.sample.conf`` and ``bin/make-sphinx-conf-example.sh`
-2. test:
-
-    search -i acmeIndex anvil; # results:1
-    search -i fooIndex foo; # results:1
-    search -i main foo; # results:1
-    search -i main acme; # results:1
 
 ## Requirements
 
