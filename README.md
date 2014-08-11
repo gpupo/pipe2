@@ -12,6 +12,11 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
     ./pipe2.phar convert:google --channel=amazon  data/google-shopping-min-sample.xml
 
+### Acme example
+
+
+    ./bin/main convert:google --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
+
 
 ## Sphinx Search Index Example:
 
