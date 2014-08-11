@@ -15,6 +15,8 @@ class Document extends \DOMDocument
     {
         parent::__construct();
         $this->encoding = 'utf-8';
+        $comment = $this->createComment('Generate by Pipe2 on ' . date('r') . ' | See https://github.com/gpupo/pipe2');
+        $this->appendChild($comment);
         $this->docset = $this->createElement("sphinx:docset");
         $this->appendChild( $this->docset );
         $elements = $this->createElement("sphinx:schema");

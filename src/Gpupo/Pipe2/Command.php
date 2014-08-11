@@ -46,12 +46,17 @@ class Command extends CommandAbstract
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $inputFile = $input->getArgument('file');
-        $outputFile = $input->getOption('output');
-        $channel = $input->getOption('channel');
-        $formatOutput = ($input->getOption('format') == 'true') ? true : false;
-        $convert = new Converter\GoogleConverter($inputFile, $outputFile, $channel, $formatOutput);
+        $parameters = array(
+            'input'         => $input->getArgument('file'),
+            'output'        => $input->getOption('output'),
+            'channel'       => $input->getOption('channel'),
+            'formatOutput'  => ($input->getOption('format') == 'true') ? true : false,
+        );
 
-        $output->writeln($convert->execute()->getDocument()->saveXml());
+        $validator = new InputValidator;
+        if ($validator->validateInputParameters($parameters)) {
+            $convert = new Converter\GoogleConverter($parameters);
+            $output->writeln($convert->execute()->getDocument()->saveXml());
+        }
     }
 }

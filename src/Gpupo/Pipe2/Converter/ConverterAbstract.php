@@ -11,13 +11,13 @@ abstract class ConverterAbstract
     protected $output;
     protected $document;
 
-    public function __construct($input, $output, $channel, $formatOutput)
+    public function __construct(Array $parameters)
     {
-        $this->input = $input;
-        $this->ouput = $output;
-        $this->channel = $channel;
+        $this->input = $parameters['input'];
+        $this->ouput = $parameters['output'];
+        $this->channel = $parameters['channel'];
         $this->setSchema();
-        $this->factoryDocument($formatOutput);
+        $this->factoryDocument($parameters['formatOutput']);
     }
 
     protected function factoryDocument($formatOutput)
