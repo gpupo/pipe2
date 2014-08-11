@@ -42,70 +42,25 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     }
 
 
-## Index merging
+## Sphinx Search config file
 
-Merging two existing indexes
-
-
-    source acmeSource
-    {
-        type = xmlpipe
-        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=acme /tmp/data/acme.googleshopping.xml
-    }
-
-    index acmeIndex
-    {
-      source = acmeSource
-      path = /var/sphinx/acmeIndex
-      charset_type = utf-8
-      mlock           = 0
-      morphology      = none
-      enable_star     = 1
-      min_prefix_len  = 2
-      expand_keywords = 1
-      min_word_len    = 2
-    }
-
-    source fooSource
-    {
-        type = xmlpipe
-        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=foo /tmp/data/foo.googleshopping.xml
-    }
-
-    index fooIndex
-    {
-      source = fooSource
-      path = /var/sphinx/fooIndex
-      charset_type = utf-8
-      mlock           = 0
-      morphology      = none
-      enable_star     = 1
-      min_prefix_len  = 2
-      expand_keywords = 1
-      min_word_len    = 2
-    }
-
-    index main
-    {
-      path = /var/sphinx/main
-      charset_type = utf-8
-      mlock           = 0
-      morphology      = none
-      enable_star     = 1
-      min_prefix_len  = 2
-      expand_keywords = 1
-      min_word_len    = 2
-    }
+see ``data/sphinx.sample.conf``
 
 
+## Test
 
+CentOs sintaxe using ``data/sphinx.sample.conf``:
 
+    mkdir -p /var/data/;
+    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/acme.googleshopping.xml -O /etc/sphinx/sphinx.conf;
+    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/acme.googleshopping.xml -O /tmp/data/acme.googleshopping.xml;
+    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/foo.googleshopping.xml -O /tmp/data/foo.googleshopping.xml;
 
-Test (CentOs sintaxe):
+    service searchd start;
+    /usr/bin/indexer --rotate --all;
 
-    service searchd start
-    /usr/bin/indexer --rotate --all
-    search foo
+    search foo;
+    search anvil;
 
 ## Requirements
 
