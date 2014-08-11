@@ -13,32 +13,39 @@ class Command extends CommandAbstract
     protected function configure()
     {
         $this
-            ->setName('convert:google')
+            ->setName('convert')
             ->setDescription('Convert Xml file in Google Shopping format to XmlPipe 2 format')
             ->addArgument(
                 'file',
                 InputArgument::REQUIRED,
-                'Google Xml file path'
+                'Xml file path'
+            )
+            ->addOption(
+                'format',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Input Xml Format',
+                'google'
             )
             ->addOption(
                 'output',
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'output filename',
+                'Output filename',
                 'stder'
             )
             ->addOption(
                 'channel',
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'channel name for fill channel item field',
+                'Channel name for fill channel item field',
                 'xml'
             )
             ->addOption(
-                'format',
+                'pretty',
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'format output',
+                'Nicely formats output with indentation and extra space',
                 false
             )
         ;
@@ -50,12 +57,14 @@ class Command extends CommandAbstract
             'input'         => $input->getArgument('file'),
             'output'        => $input->getOption('output'),
             'channel'       => $input->getOption('channel'),
-            'formatOutput'  => ($input->getOption('format') == 'true') ? true : false,
+            'formatOutput'  => ($input->getOption('pretty') == 'true') ? true : false,
         );
 
         $validator = new InputValidator;
+
+        $converter = '\\Gpupo\Pipe2\Converter\\' . ucfirst($input->getOption('format')) . 'Converter';
         if ($validator->validateInputParameters($parameters)) {
-            $convert = new Converter\GoogleConverter($parameters);
+            $convert = new $converter($parameters);
             $output->writeln($convert->execute()->getDocument()->saveXml());
         }
     }
