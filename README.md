@@ -51,16 +51,27 @@ see ``data/sphinx.sample.conf``
 
 CentOs sintaxe using ``data/sphinx.sample.conf``:
 
-    mkdir -p /var/data/;
-    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/acme.googleshopping.xml -O /etc/sphinx/sphinx.conf;
+
+    wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/sphinx.sample.conf -O /etc/sphinx/sphinx.conf;
+
+    mkdir -p /tmp/data/;
     wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/acme.googleshopping.xml -O /tmp/data/acme.googleshopping.xml;
     wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/foo.googleshopping.xml -O /tmp/data/foo.googleshopping.xml;
 
-    service searchd start;
     /usr/bin/indexer --rotate --all;
 
-    search foo;
-    search anvil;
+    service searchd start;
+
+    search -i acmeIndex anvil
+    search -i fooIndex foo
+
+    indexer --merge main fooIndex
+
+
+
+
+    search -i main foo
+    search -i main acme
 
 ## Requirements
 
