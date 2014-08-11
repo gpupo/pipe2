@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Generate by Pipe2 on Mon, 11 Aug 2014 10:22:18 -0300 | See https://github.com/gpupo/pipe2-->
+<sphinx:docset>
+  <sphinx:schema>
+    <sphinx:field name="channel" attr="string"/>
+    <sphinx:field name="title" attr="string"/>
+    <sphinx:field name="description" attr="string"/>
+    <sphinx:field name="sku" attr="string"/>
+    <sphinx:field name="category" attr="string"/>
+    <sphinx:field name="type" attr="string"/>
+    <sphinx:field name="brand" attr="string"/>
+    <sphinx:field name="size" attr="string"/>
+    <sphinx:field name="color" attr="string"/>
+    <sphinx:field name="gender" attr="string"/>
+    <sphinx:attr name="link" type="string"/>
+    <sphinx:attr name="id" type="int" bits="20"/>
+    <sphinx:attr name="price" type="float"/>
+    <sphinx:attr name="sale_price" type="float"/>
+    <sphinx:attr name="sale_price_effective_date" type="string"/>
+    <sphinx:attr name="mpn" type="string"/>
+    <sphinx:attr name="image_link" type="string"/>
+    <sphinx:attr name="condition" type="string"/>
+    <sphinx:attr name="availability" type="string"/>
+    <sphinx:attr name="age_group" type="string"/>
+    <sphinx:attr name="shipping_weight" type="string"/>
+    <sphinx:attr name="online_only" type="string"/>
+    <sphinx:attr name="installment_months" type="int" bits="5"/>
+    <sphinx:attr name="installment_amount" type="float"/>
+    <sphinx:attr name="review_count" type="int" bits="5"/>
+    <sphinx:attr name="review_average" type="int" bits="5"/>
+  </sphinx:schema>
+  <sphinx:document id="292">
+    <channel>acme</channel>
+    <id>292</id>
+    <title>Acme Anvil</title>
+    <description>An anvil is a basic tool, a block with a hard surface on which another object is struck.
+             The block is as massive as it is practical, because the higher the inertia of the anvil, the more efficiently
+              it causes the energy of the striking tool to be transferred to the work piece.
+               In most cases the anvil is used as a forging tool. Before the advent of modern welding technology, it was a primary tool of metal workers.
+The great majority of modern anvils are made from steel, as well as cast iron or a combination of iron and steel.
+Because anvils are very ancient tools and were at one time very commonplace, they have acquired symbolic meaning beyond their use as utilitarian objects.
+The principle of the anvil also is of particular interest in biology and in ethology; the anvil being in principle one
+ of the most basic forms of tool, its application occurs particularly widely in living organisms.</description>
+    <category>Tools</category>
+    <type>Tools</type>
+    <link>http://en.wikipedia.org/wiki/Anvil</link>
+    <image_link>http://img42.com/kaUvB+</image_link>
+    <condition>new</condition>
+    <availability>in stock</availability>
+    <price>329.00</price>
+    <sale_price>289.52</sale_price>
+    <sale_price_effective_date>2014-08-04T18:07-0300/2014-08-06T18:07-0300</sale_price_effective_date>
+    <brand>Acme</brand>
+    <sku>3360372058861</sku>
+    <mpn>292</mpn>
+    <gender>unisex</gender>
+    <age_group>adult</age_group>
+    <size>50ml</size>
+    <shipping_weight>10.30 kg</shipping_weight>
+    <online_only>y</online_only>
+    <installment_months>12</installment_months>
+    <installment_amount>24.13</installment_amount>
+    <review_count>14</review_count>
+    <review_average>5</review_average>
+  </sphinx:document>
+</sphinx:docset>
+
