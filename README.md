@@ -14,6 +14,8 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
 ### Acme example
 
+This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
+ and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
 
     ./bin/main convert:google --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
