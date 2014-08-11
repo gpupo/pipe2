@@ -12,7 +12,7 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
     ./pipe2.phar convert:google --channel=amazon  data/google-shopping-min-sample.xml
 
-### Acme example
+### Acme Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
  and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
@@ -20,19 +20,18 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     ./bin/main convert:google --channel=acme --format=true data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 
-## Sphinx Search Index Example:
+## Sphinx Search Index Example
 
-    source xmlSource
+    source acmeSource
     {
         type = xmlpipe
-        xmlpipe_command = /usr/local/bin/pipe2 convert:google /tmp/google-shopping-sample.xml
+        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=acme /tmp/data/acme.googleshopping.xm
     }
 
-
-    index xmlIndex
+    index acmeIndex
     {
-      source = xmlSource
-      path = /var/sphinx/xmlIndex
+      source = acmeSource
+      path = /var/sphinx/acmeIndex
       charset_type = utf-8
       mlock           = 0
       morphology      = none
@@ -41,6 +40,65 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
       expand_keywords = 1
       min_word_len    = 2
     }
+
+
+## Index merging
+
+Merging two existing indexes
+
+
+    source acmeSource
+    {
+        type = xmlpipe
+        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=acme /tmp/data/acme.googleshopping.xml
+    }
+
+    index acmeIndex
+    {
+      source = acmeSource
+      path = /var/sphinx/acmeIndex
+      charset_type = utf-8
+      mlock           = 0
+      morphology      = none
+      enable_star     = 1
+      min_prefix_len  = 2
+      expand_keywords = 1
+      min_word_len    = 2
+    }
+
+    source fooSource
+    {
+        type = xmlpipe
+        xmlpipe_command = /usr/local/bin/pipe2 convert:google --channel=foo /tmp/data/foo.googleshopping.xml
+    }
+
+    index fooIndex
+    {
+      source = fooSource
+      path = /var/sphinx/fooIndex
+      charset_type = utf-8
+      mlock           = 0
+      morphology      = none
+      enable_star     = 1
+      min_prefix_len  = 2
+      expand_keywords = 1
+      min_word_len    = 2
+    }
+
+    index main
+    {
+      path = /var/sphinx/main
+      charset_type = utf-8
+      mlock           = 0
+      morphology      = none
+      enable_star     = 1
+      min_prefix_len  = 2
+      expand_keywords = 1
+      min_word_len    = 2
+    }
+
+
+
 
 
 Test (CentOs sintaxe):
