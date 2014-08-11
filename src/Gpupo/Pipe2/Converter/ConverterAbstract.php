@@ -43,7 +43,7 @@ abstract class ConverterAbstract
         foreach ($list as $item) {
 
             $itemElement = $this->document->createElement( "sphinx:document" );
-            $itemElement->setAttribute('id', $item['id']);
+            $itemElement->setAttribute('id', $item['sku']);
 
             foreach ($item as $key => $value) {
                 $tag = $this->document->createElement($key);
