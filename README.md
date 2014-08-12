@@ -5,17 +5,17 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 
 ## Simple usage:
 
-    ./pipe2.phar convert data/google-shopping-sample.xml
+    pipe2 convert data/google-shopping-sample.xml
 
 
 ### Add Channel name
 
-    ./pipe2.phar convert --channel=amazon data/google-shopping-min-sample.xml
+    pipe2 convert --channel=amazon data/google-shopping-min-sample.xml
 
 
 ### Generate blank document with nicely formats output with indentation
 
-    ./pipe2.phar generate --pretty=true
+    pipe2 generate --pretty=true
 
 
 ### Acme Samples
@@ -23,7 +23,7 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
  and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
 
-    ./pipe2.phar convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
+    pipe2 convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 ## Sphinx Search Index Example
 
@@ -69,10 +69,6 @@ your system:
 
     $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.3/pipe2.phar -O /usr/local/bin/pipe2
 
-or with curl:
-
-    $ sudo curl https://github.com/gpupo/pipe2/releases/download/v0.2/pipe2.phar -o /usr/local/bin/pipe2
-
 then:
 
     $ sudo chmod a+x /usr/local/bin/pipe2
@@ -82,27 +78,18 @@ Then, just run ``pipe2``.
 
 # Help
 
+## Available commands
+
+  - convert:    Convert Xml file to xmlpipe2 format
+  - generate:   Generate blank Document xmlpipe2 format
+  - help:       Displays help for a command
+  - list:       Lists commands
+
+
 ## Usage:
 
-    convert [--format[="..."]] [--output[="..."]] [--channel[="..."]] [--pretty[="..."]] file
-
-## Arguments:
-
-     file                  Xml file path
-
-## Options
-
-     --format              Input Xml Format (default: "google")
-     --output              Output filename (default: "stder")
-     --channel             Channel name for fill channel item field (default: "xml")
-     --pretty              Nicely formats output with indentation and extra space (default: false)
-     --help (-h)           Display this help message.
-     --quiet (-q)          Do not output any message.
-     --verbose (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
-     --version (-V)        Display this application version.
-     --ansi                Force ANSI output.
-     --no-ansi             Disable ANSI output.
-     --no-interaction (-n) Do not ask any interactive question.
+    pipe2 help convert;
+    pipe2 help generate;
 
 
 ## Todo
