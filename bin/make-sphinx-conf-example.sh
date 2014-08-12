@@ -10,6 +10,7 @@ wget https://raw.githubusercontent.com/gpupo/pipe2/master/data/foo.googleshoppin
 
 service searchd start;
 
+indexer --rotate --all
 indexer --merge main acmeIndex --rotate;
 indexer --merge main fooIndex --rotate;
 
