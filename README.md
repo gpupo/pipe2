@@ -8,24 +8,24 @@ Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/cu
     pipe2 convert data/google-shopping-sample.xml
 
 
-### Add Channel name
+with channel name:
 
     pipe2 convert --channel=amazon data/google-shopping-min-sample.xml
 
 
-### Generate blank document with nicely formats output with indentation
+Generate blank document with nicely formats output with indentation:
 
     pipe2 generate --pretty=true
 
 
-### Acme Samples
+### Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
  and creates the **output** sample file [data/acme.xmlpipe2.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.xmlpipe2.xml):
 
     pipe2 convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
-## Sphinx Search Index Example
+### Sphinx Search Index Example
 
     source acmeSource
     {
@@ -47,9 +47,7 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     }
 
 
-## Sphinx Search config file
-
-1. see ``data/sphinx.sample.conf`` and ``bin/make-sphinx-conf-example.sh`
+For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 ## Requirements
 
@@ -60,7 +58,7 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
 
 ### Locally
 
-Download the ``pipe2.phar`` file and store it somewhere on your computer.
+Download the [latest release](https://github.com/gpupo/pipe2/releases/latest) for ``pipe2.phar`` file and store it somewhere on your computer.
 
 ### Globally (manual)
 
@@ -85,12 +83,10 @@ Then, just run ``pipe2``.
   - help:       Displays help for a command
   - list:       Lists commands
 
-
-## Usage:
+## Help Usage:
 
     pipe2 help convert;
     pipe2 help generate;
-
 
 ## Todo
 
