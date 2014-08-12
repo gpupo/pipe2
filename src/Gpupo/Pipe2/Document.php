@@ -22,7 +22,7 @@ class Document extends \DOMDocument
         $elements = $this->createElement("sphinx:schema");
 
         foreach ($schema->getSchema() as $type => $list) {
-            foreach($list as $key => $prop) {
+            foreach ($list as $key => $prop) {
                 $elements->appendChild($this->factoryTag($type, $key, $prop));
             }
         }
@@ -36,7 +36,7 @@ class Document extends \DOMDocument
 
         if (is_array($prop)) {
             $tag->setAttribute('name', $key);
-            foreach($prop as $k => $v) {
+            foreach ($prop as $k => $v) {
                 $tag->setAttribute($k, $v);
             }
         } else {
