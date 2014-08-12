@@ -9,6 +9,7 @@ abstract class ConverterAbstract
     protected $schema;
     protected $input;
     protected $output;
+    protected $idParameters;
     protected $document;
 
     public function __construct(Array $parameters)
@@ -16,6 +17,7 @@ abstract class ConverterAbstract
         $this->input = $parameters['input'];
         $this->ouput = $parameters['output'];
         $this->channel = $parameters['channel'];
+        $this->idParameters = $parameters['id'];
         $this->setSchema();
         $this->factoryDocument($parameters['formatOutput']);
     }
@@ -43,7 +45,12 @@ abstract class ConverterAbstract
         foreach ($list as $item) {
 
             $itemElement = $this->document->createElement( "sphinx:document" );
-            $itemElement->setAttribute('id', $item['sku']);
+            $id = $this->idParameters['prefix'] . $item[$this->idParameters['field']];
+            $itemElement->setAttribute('id', $id);
+
+            if (!array_key_exists('sku', $item) || empty($item['sku'])) {
+                $item['sku'] = $id;
+            }
 
             foreach ($item as $key => $value) {
                 $tag = $this->document->createElement($key);
@@ -85,7 +92,9 @@ abstract class ConverterAbstract
                 'channel' => $this->channel,
             );
             foreach ($data['item'] as $product) {
-                $item[$product['tag']] = $product['value'];
+                if (array_key_exists('tag', $product) && array_key_exists('value', $product)) {
+                    $item[$product['tag']] = $product['value'];
+                }
             }
 
             $list[$item['id']] = $item;

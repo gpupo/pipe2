@@ -48,6 +48,20 @@ class ConvertCommand extends Command
                 'Nicely formats output with indentation and extra space',
                 false
             )
+            ->addOption(
+                'idField',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Item field to fill document id',
+                'sku'
+            )
+            ->addOption(
+                'idPrefix',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Integer prefix for document id',
+                null
+            )
         ;
     }
 
@@ -57,6 +71,10 @@ class ConvertCommand extends Command
             'input'         => $input->getArgument('file'),
             'output'        => $input->getOption('output'),
             'channel'       => $input->getOption('channel'),
+            'id'            => array(
+                'field'     => $input->getOption('idField'),
+                'prefix'    => $input->getOption('idPrefix'),
+            ),
             'format'        => (is_null($input->getArgument('file')) ? 'Blank' :ucfirst($input->getOption('format'))),
             'formatOutput'  => ($input->getOption('pretty') == 'true') ? true : false,
         );

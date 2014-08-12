@@ -67,7 +67,7 @@ Download the ``pipe2.phar`` file and store it somewhere on your computer.
 You can run these commands to easily access ``pipe2`` from anywhere on
 your system:
 
-    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.2/pipe2.phar -O /usr/local/bin/pipe2
+    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.3/pipe2.phar -O /usr/local/bin/pipe2
 
 or with curl:
 

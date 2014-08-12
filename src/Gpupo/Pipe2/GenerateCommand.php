@@ -2,7 +2,6 @@
 
 namespace Gpupo\Pipe2;
 
-
 class GenerateCommand extends ConvertCommand
 {
     protected function configure()
