@@ -7,7 +7,7 @@ class InputValidator
 
     public function validateInputParameters(Array $parameters)
     {
-        if (!file_exists($parameters['input'])) {
+        if ($parameters['format'] != 'Blank' && !file_exists($parameters['input'])) {
             throw new \InvalidArgumentException('Input File not found');
         }
 

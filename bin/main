@@ -4,8 +4,11 @@
 require __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Gpupo\Pipe2\Command;
+use Gpupo\Pipe2\ConvertCommand;
+use Gpupo\Pipe2\GenerateCommand;
 
 $application = new Application('Pipe2 - Converter to XmlPipe2', '@package_version@');
-$application->add(new Command);
+$application->add(new ConvertCommand);
+$application->add(new GenerateCommand);
+
 $application->run();
