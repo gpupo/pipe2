@@ -6,7 +6,8 @@
     "require": {
         "symfony/console": "dev-master",
         "ext-xml": "*",
-        "gpupo/common-schema": "dev-master"
+        "gpupo/common-schema": "dev-master",
+        "cocur/slugify": "@stable"
     },
     "autoload": {
         "psr-0": { "Gpupo\\Pipe2": "src" }

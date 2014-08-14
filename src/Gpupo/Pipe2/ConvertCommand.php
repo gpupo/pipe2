@@ -49,6 +49,13 @@ class ConvertCommand extends Command
                 false
             )
             ->addOption(
+            'slug',
+            null,
+            InputOption::VALUE_OPTIONAL,
+            'add sluggables fields - schema based ',
+            false
+            )
+            ->addOption(
                 'idField',
                 null,
                 InputOption::VALUE_OPTIONAL,
@@ -71,6 +78,7 @@ class ConvertCommand extends Command
             'input'         => $input->getArgument('file'),
             'output'        => $input->getOption('output'),
             'channel'       => $input->getOption('channel'),
+            'slug'          => $input->getOption('slug'),
             'id'            => array(
                 'field'     => $input->getOption('idField'),
                 'prefix'    => $input->getOption('idPrefix'),
