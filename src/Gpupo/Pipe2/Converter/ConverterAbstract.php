@@ -134,36 +134,37 @@ abstract class ConverterAbstract
 
     protected function parser_create()
     {
+        $list = array();
+
         $doc = new \DOMDocument;
-        $doc->load($this->input);
+        if (@$doc->load($this->input)) {
+            $xml = $doc->saveXML();
+            $values = $index = array();
+            $parser = xml_parser_create();
+            xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
+            xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
+            xml_parse_into_struct($parser, $xml, $values, $index);
+            xml_parser_free($parser);
 
-        $xml = $doc->saveXML();
+            foreach ($index as $k => $v) {
+                if ($k === "item") {
+                    for ($i=0; $i < count($v); $i+=2) {
+                        $count = (empty($count) ? $v[$i] : ++$count);
+                        $offset = $v[$i] + 1;
+                        $len = $v[$i + 1] - $offset;
+                        $list[$count] = $values[$v[0]];
+                        $item = $this->fieldReduce(array_slice($values, $offset, $len));
 
-        $values = $index = array();
-        $parser = xml_parser_create();
-        xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
-        xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
-        xml_parse_into_struct($parser, $xml, $values, $index);
-        xml_parser_free($parser);
-
-        foreach ($index as $k => $v) {
-            if ($k === "item") {
-                for ($i=0; $i < count($v); $i+=2) {
-                    $count = (empty($count) ? $v[$i] : ++$count);
-                    $offset = $v[$i] + 1;
-                    $len = $v[$i + 1] - $offset;
-                    $list[$count] = $values[$v[0]];
-                    $item = $this->fieldReduce(array_slice($values, $offset, $len));
-
-                    if (!empty($item)) {
-                        $list[$count]['item'] = $item;
+                        if (!empty($item)) {
+                            $list[$count]['item'] = $item;
+                        }
                     }
+
+                    break;
                 }
 
-                break;
+                $list[] = $values[$v[0]];
             }
-
-            $list[] = $values[$v[0]];
         }
 
         return $list;
