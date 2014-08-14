@@ -83,7 +83,7 @@ class ConvertCommand extends Command
                 'field'     => $input->getOption('idField'),
                 'prefix'    => $input->getOption('idPrefix'),
             ),
-            'format'        => (is_null($input->getArgument('file')) ? 'Blank' :ucfirst($input->getOption('format'))),
+            'format'        => ucfirst($input->getOption('format')),
             'formatOutput'  => ($input->getOption('pretty') == 'true') ? true : false,
         );
 
