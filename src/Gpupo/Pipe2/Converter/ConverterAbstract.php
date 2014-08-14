@@ -100,7 +100,9 @@ abstract class ConverterAbstract
         }
 
         foreach ($this->schema->getSluggables() as $key) {
-            $item[$key . '_slug'] = $this->getNormalizer()->slugify($item[$key]);
+            if (array_key_exists($key, $item)) {
+                $item[$key . '_slug'] = $this->getNormalizer()->slugify($item[$key]);
+            }
         }
 
         return $item;
