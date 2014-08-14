@@ -19,7 +19,7 @@ class GoogleExtendedConverter extends GoogleConverter
 
     protected function extended($item)
     {
-        if ($item['sale_price']) {
+        if (array_key_exists('sale_price', $item) && !empty($item['sale_price'])) {
             $item['sale_price_discount'] = $item['price'] - $item['sale_price'];
             $item['sale_price_percentage'] =  ($item['price'] - $item['sale_price'])/$item['price'] * 100;
         }
