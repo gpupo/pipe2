@@ -24,6 +24,16 @@ class GoogleExtendedConverter extends GoogleConverter
             $item['sale_price_percentage'] =  ($item['price'] - $item['sale_price'])/$item['price'] * 100;
         }
 
+        $parts = array();
+
+        foreach (array('title', 'color', 'size', 'id' , 'brand', 'channel', 'category', 'sku') as $key) {
+            if (array_key_exists($key, $item)) {
+                $parts[] = $item[$key];
+            }
+        }
+
+        $item['document_slug'] = $this->getNormalizer()->slugify(implode('-', $parts));
+
         return $item;
     }
 }
