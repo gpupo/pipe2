@@ -19,7 +19,7 @@ abstract class NormalizerAbstract
 
     public function normalizeArrayValues(Array $keys, Array $item)
     {
-        foreach( $keys as $field) {
+        foreach ($keys as $field) {
             if (array_key_exists($field, $item)) {
                 $item[$field] = $this->normalize($field, $item[$field]);
             }
@@ -41,7 +41,7 @@ abstract class NormalizerAbstract
             'utm_item',
         );
 
-        foreach($blackList as $key) {
+        foreach ($blackList as $key) {
             unset($params[$key]);
         }
 
@@ -82,8 +82,7 @@ abstract class NormalizerAbstract
 
     public function slugify($value)
     {
-        if (!$this->slugifyTool)
-        {
+        if (!$this->slugifyTool) {
             $this->slugifyTool = new Slugify;
         }
 
