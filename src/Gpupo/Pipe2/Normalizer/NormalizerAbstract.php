@@ -2,6 +2,8 @@
 
 namespace Gpupo\Pipe2\Normalizer;
 
+use Cocur\Slugify\Slugify;
+
 abstract class NormalizerAbstract
 {
     public function normalize($field, $value)
@@ -74,5 +76,17 @@ abstract class NormalizerAbstract
         }
 
         return $value;
+    }
+
+    protected $slugifyTool;
+
+    public function slugify($value)
+    {
+        if (!$this->slugifyTool)
+        {
+            $this->slugifyTool = new Slugify;
+        }
+
+        return $this->slugifyTool->slugify($value);
     }
 }

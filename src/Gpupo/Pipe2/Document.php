@@ -11,7 +11,7 @@ class Document extends \DOMDocument
 {
     public $docset;
 
-    public function __construct(SchemaInterface $schema)
+    public function __construct(SchemaInterface $schema, $slug = false)
     {
         parent::__construct();
         $this->encoding = 'utf-8';
@@ -24,6 +24,12 @@ class Document extends \DOMDocument
         foreach ($schema->getSchema() as $type => $list) {
             foreach ($list as $key => $prop) {
                 $elements->appendChild($this->factoryTag($type, $key, $prop));
+            }
+        }
+
+        if ($slug) {
+            foreach ($schema->getSluggables() as $key) {
+                $elements->appendChild($this->factoryTag('field', $key . '_slug', array('attr' => 'string')));
             }
         }
 

@@ -8,6 +8,7 @@ abstract class ConverterAbstract
 {
     protected $input;
     protected $output;
+    protected $slug;
     protected $idParameters;
     protected $document;
     protected $schema;
@@ -18,6 +19,7 @@ abstract class ConverterAbstract
         $this->input = $parameters['input'];
         $this->ouput = $parameters['output'];
         $this->channel = $parameters['channel'];
+        $this->slug = $parameters['slug'];
         $this->idParameters = $parameters['id'];
         $this->setSchema();
         $this->setNormalizer();
@@ -26,7 +28,7 @@ abstract class ConverterAbstract
 
     protected function factoryDocument($formatOutput)
     {
-        $this->document = new Document($this->schema);
+        $this->document = new Document($this->schema, $this->slug);
         $this->document->formatOutput = $formatOutput;
     }
 
@@ -91,6 +93,18 @@ abstract class ConverterAbstract
         return $item;
     }
 
+    protected function addSlugs(Array $item)
+    {
+        if (empty($this->slug)) {
+            return $item;
+        }
+
+        foreach ($this->schema->getSluggables() as $key) {
+            $item[$key . '_slug'] = $this->getNormalizer()->slugify($item[$key]);
+        }
+
+        return $item;
+    }
 
     protected function parser()
     {
@@ -112,7 +126,7 @@ abstract class ConverterAbstract
 
             $normalized = $this->getNormalizer()->normalizeArrayValues($this->schema->getKeys(), $item);
 
-            $list[$item['id']] = $this->extended($normalized);
+            $list[$item['id']] = $this->addSlugs($this->extended($normalized));
         }
 
         return $list;
