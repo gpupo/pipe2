@@ -1,6 +1,6 @@
 # Pipe2
 
-Convert Google Shopping XML format to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format
+Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format
 
 
 ## Simple usage:

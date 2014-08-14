@@ -6,11 +6,12 @@ use Gpupo\Pipe2\Document;
 
 abstract class ConverterAbstract
 {
-    protected $schema;
     protected $input;
     protected $output;
     protected $idParameters;
     protected $document;
+    protected $schema;
+    protected $normalizer;
 
     public function __construct(Array $parameters)
     {
@@ -19,6 +20,7 @@ abstract class ConverterAbstract
         $this->channel = $parameters['channel'];
         $this->idParameters = $parameters['id'];
         $this->setSchema();
+        $this->setNormalizer();
         $this->factoryDocument($parameters['formatOutput']);
     }
 
@@ -31,6 +33,11 @@ abstract class ConverterAbstract
     public function getDocument()
     {
         return $this->document;
+    }
+
+    public function getNormalizer()
+    {
+        return $this->normalizer;
     }
 
     public function execute()
@@ -79,6 +86,12 @@ abstract class ConverterAbstract
         return $list;
     }
 
+    protected function extended($item)
+    {
+        return $item;
+    }
+
+
     protected function parser()
     {
         $list = array();
@@ -97,7 +110,9 @@ abstract class ConverterAbstract
                 }
             }
 
-            $list[$item['id']] = $item;
+            $normalized = $this->getNormalizer()->normalizeArrayValues($this->schema->getKeys(), $item);
+
+            $list[$item['id']] = $this->extended($normalized);
         }
 
         return $list;
