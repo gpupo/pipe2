@@ -31,18 +31,21 @@ abstract class NormalizerAbstract
     protected function normalizeLink($url)
     {
         $parse = parse_url($url);
-        parse_str($parse['query'], $params);
 
-        $blackList = array(
-            'utm_campaign',
-            'utm_source' ,
-            'utm_medium',
-            'utm_term',
-            'utm_item',
-        );
+        if (array_key_exists('query', $parse)) {
+            parse_str($parse['query'], $params);
 
-        foreach ($blackList as $key) {
-            unset($params[$key]);
+            $blackList = array(
+                'utm_campaign',
+                'utm_source' ,
+                'utm_medium',
+                'utm_term',
+                'utm_item',
+            );
+
+            foreach ($blackList as $key) {
+                unset($params[$key]);
+            }
         }
 
         $newUrl = '';

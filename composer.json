@@ -9,8 +9,16 @@
         "gpupo/common-schema": "dev-master",
         "cocur/slugify": "@stable"
     },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    },
     "autoload": {
-        "psr-0": { "Gpupo\\Pipe2": "src" }
+        "psr-4": { "Gpupo\\": "src/Gpupo" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gpupo\\Tests\\": "tests/Gpupo/Tests"
+        }
     },
     "minimum-stability": "dev"
 }
