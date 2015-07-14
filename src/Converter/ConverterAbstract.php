@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of gpupo/pipe2
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\Pipe2\Converter;
 
 use Gpupo\Pipe2\Document;
@@ -52,9 +61,8 @@ abstract class ConverterAbstract
     protected function appendItens($list)
     {
         foreach ($list as $item) {
-
-            $itemElement = $this->document->createElement( "sphinx:document" );
-            $id = $this->idParameters['prefix'] . $item[$this->idParameters['field']];
+            $itemElement = $this->document->createElement('sphinx:document');
+            $id = $this->idParameters['prefix'].$item[$this->idParameters['field']];
             $itemElement->setAttribute('id', $id);
 
             if (!array_key_exists('sku', $item) || empty($item['sku'])) {
@@ -101,7 +109,7 @@ abstract class ConverterAbstract
 
         foreach ($this->schema->getSluggables() as $key) {
             if (array_key_exists($key, $item)) {
-                $item[$key . '_slug'] = $this->getNormalizer()->slugify($item[$key]);
+                $item[$key.'_slug'] = $this->getNormalizer()->slugify($item[$key]);
             }
         }
 
@@ -113,7 +121,7 @@ abstract class ConverterAbstract
         $list = array();
 
         foreach ($this->parser_create() as $data) {
-            if ($data['tag']!='item') {
+            if ($data['tag'] !== 'item') {
                 continue;
             }
 
@@ -138,7 +146,7 @@ abstract class ConverterAbstract
     {
         $list = array();
 
-        $doc = new \DOMDocument;
+        $doc = new \DOMDocument();
         if (@$doc->load($this->input)) {
             $xml = $doc->saveXML();
             $values = $index = array();
@@ -149,8 +157,8 @@ abstract class ConverterAbstract
             xml_parser_free($parser);
 
             foreach ($index as $k => $v) {
-                if ($k === "item") {
-                    for ($i=0; $i < count($v); $i+=2) {
+                if ($k === 'item') {
+                    for ($i = 0; $i < count($v); $i += 2) {
                         $count = (empty($count) ? $v[$i] : ++$count);
                         $offset = $v[$i] + 1;
                         $len = $v[$i + 1] - $offset;
@@ -171,5 +179,4 @@ abstract class ConverterAbstract
 
         return $list;
     }
-
 }
