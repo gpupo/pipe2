@@ -1,6 +1,13 @@
 {
     "name": "gpupo/pipe2",
     "description": "Convert Google Shopping XML format to XMLPipe2 format",
+    "homepage": "https://www.github.com/gpupo/common",
+    "authors": [
+        {
+            "name": "Gilmar Pupo",
+            "email": "g@g1mr.com"
+        }
+    ],
     "keywords": ["sphinx", "xml", "xmlpipe2"],
     "license": "MIT",
     "require": {
@@ -9,16 +16,20 @@
         "gpupo/common-schema": "dev-master",
         "cocur/slugify": "@stable"
     },
-    "require-dev": {
-        "phpunit/phpunit": "*"
-    },
     "autoload": {
-        "psr-4": { "Gpupo\\": "src/Gpupo" }
+        "psr-4": { "Gpupo\\Pipe2\\": "src" }
     },
     "autoload-dev": {
         "psr-4": {
-            "Gpupo\\Tests\\": "tests/Gpupo/Tests"
+            "Gpupo\\Tests\\Pipe2\\": "tests"
         }
     },
-    "minimum-stability": "dev"
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "codeclimate/php-test-reporter": "dev-master"
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability" : "stable"
 }
