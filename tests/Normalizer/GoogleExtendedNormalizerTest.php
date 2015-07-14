@@ -2,7 +2,6 @@
 
 namespace Gpupo\Tests\Pipe2\Normalizer;
 
-use Gpupo\Tests\TestCaseAbstract;
 use Gpupo\Pipe2\Normalizer\GoogleExtendedNormalizer;
 
 class GoogleExtendedNormalizerTest extends TestCaseAbstract
