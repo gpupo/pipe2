@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/gpupo/pipe2.png?branch=master)](http://travis-ci.org/gpupo/pipe2)
+
 # Pipe2
 
 Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format
