@@ -38,10 +38,15 @@ Then, just run ``pipe2``.
 
 ## Available commands
 
-  - ``convert``:    Convert Xml file to xmlpipe2 format
+  - ``convert``:    Convert Xml file to xmlpipe2 format  
   - ``generate``:   Generate blank Document xmlpipe2 format
   - ``help``:       Displays help for a command
   - ``list``:       Lists commands
+  - ``merge-additional-elements``:  Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
+  Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
+  Merge XML Documents with Similar Structure Where Second Document Contains Attributes
+
+
 
 ## Help Usage:
 

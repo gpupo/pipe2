@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="extranet" default="build">
- <target name="update" depends="clean,composer"/>
- <target name="build" description="Build pipe2.phar">
+<project name="pipe2" default="build">
+ <target name="composer-rebuild" depends="clean,composer"/>
+ <target name="box.phar" depends="box.check" unless="box.file.exists">
+   <get src="https://github.com/box-project/box2/releases/download/2.5.2/box-2.5.2.phar" dest="${basedir}/box.phar" skipexisting="false"/>
+ </target>
+ <target name="box.check">
+   <condition property="box.file.exists">
+     <available file="${basedir}/box.phar" type="file" />
+   </condition>
+ </target>
+ <target name="build" depends="box.phar" description="Build pipe2.phar">
      <exec executable="php">
-         <arg value="${basedir}/vendor/bin/box"/>
+         <arg value="${basedir}/box.phar"/>
          <arg value="build"/>
      </exec>
  </target>
