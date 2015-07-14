@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="extranet" default="build">
- <target name="build" depends="clean,composer"/>
+ <target name="update" depends="clean,composer"/>
+ <target name="build" description="Build pipe2.phar">
+     <exec executable="php">
+         <arg value="${basedir}/vendor/bin/box"/>
+         <arg value="build"/>
+     </exec>
+ </target>
  <target name="clean" description="Cleanup build artifacts">
   <delete dir="${basedir}/vendor"/>
   <delete file="${basedir}/composer.lock"/>
