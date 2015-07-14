@@ -13,13 +13,13 @@
 >
     <testsuites>
         <testsuite name="Main Test Suite">
-            <directory>./tests/Gpupo/Tests</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory>./src/</directory>
+            <directory>src/</directory>
         </whitelist>
     </filter>
 </phpunit>
