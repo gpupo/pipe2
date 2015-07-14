@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e8acc9f9db008339d0d78a4891a6fa37",
+    "hash": "ad1f82592a8847da8e1a7e2526087840",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -71,62 +71,70 @@
         },
         {
             "name": "gpupo/common-schema",
-            "version": "dev-master",
+            "version": "1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gpupo/common-schema.git",
-                "reference": "b07645e75fcc9c7c834f580f263cbffe45c6c85c"
+                "reference": "d2d4911679d99447550717e3fac12c70a58c9f4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gpupo/common-schema/zipball/b07645e75fcc9c7c834f580f263cbffe45c6c85c",
-                "reference": "b07645e75fcc9c7c834f580f263cbffe45c6c85c",
+                "url": "https://api.github.com/repos/gpupo/common-schema/zipball/d2d4911679d99447550717e3fac12c70a58c9f4d",
+                "reference": "d2d4911679d99447550717e3fac12c70a58c9f4d",
                 "shasum": ""
             },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": "~4.0"
             },
+            "type": "library",
             "autoload": {
-                "psr-0": {
-                    "Gpupo": "src"
+                "psr-4": {
+                    "Gpupo\\CommonSchema\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "description": "Common scheme used in components with Sphinx Search",
+            "authors": [
+                {
+                    "name": "Gilmar Pupo",
+                    "email": "g@g1mr.com"
+                }
+            ],
+            "description": "Common schema",
+            "homepage": "https://www.github.com/gpupo/common-schema",
             "keywords": [
                 "schema",
-                "sphinx"
+                "sphinx",
+                "xml",
+                "xmlpipe2"
             ],
-            "time": "2014-08-14 18:13:32"
+            "time": "2015-07-14 14:44:29"
         },
         {
             "name": "symfony/console",
-            "version": "dev-master",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "a3f42f68c9988f56317c3950f7eff6036d8fbe72"
+                "reference": "8cf484449130cabfd98dcb4694ca9945802a21ed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/a3f42f68c9988f56317c3950f7eff6036d8fbe72",
-                "reference": "a3f42f68c9988f56317c3950f7eff6036d8fbe72",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/8cf484449130cabfd98dcb4694ca9945802a21ed",
+                "reference": "8cf484449130cabfd98dcb4694ca9945802a21ed",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "psr/log": "~1.0",
-                "symfony/event-dispatcher": "~2.8|~3.0",
-                "symfony/phpunit-bridge": "~2.8|~3.0",
-                "symfony/process": "~2.8|~3.0"
+                "symfony/event-dispatcher": "~2.1",
+                "symfony/phpunit-bridge": "~2.7",
+                "symfony/process": "~2.1"
             },
             "suggest": {
                 "psr/log": "For using the console logger",
@@ -136,7 +144,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -160,7 +168,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-07-09 16:12:34"
+            "time": "2015-07-09 16:07:40"
         }
     ],
     "packages-dev": [
@@ -1583,14 +1591,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "symfony/console": 20,
-        "gpupo/common-schema": 20,
-        "cocur/slugify": 0,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+        "php": ">=5.5",
         "ext-xml": "*"
     },
     "platform-dev": []

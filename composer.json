@@ -11,10 +11,11 @@
     "keywords": ["sphinx", "xml", "xmlpipe2"],
     "license": "MIT",
     "require": {
-        "symfony/console": "dev-master",
+        "php": ">=5.5",
         "ext-xml": "*",
-        "gpupo/common-schema": "dev-master",
-        "cocur/slugify": "@stable"
+        "symfony/console": "~2.3",
+        "gpupo/common-schema": "~1.0",
+        "cocur/slugify": "~1.0"
     },
     "autoload": {
         "psr-4": { "Gpupo\\Pipe2\\": "src" }
