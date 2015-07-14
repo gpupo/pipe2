@@ -17,6 +17,7 @@ abstract class ConverterAbstract
 {
     protected $input;
     protected $output;
+    protected $channel;
     protected $slug;
     protected $idParameters;
     protected $document;
@@ -26,7 +27,7 @@ abstract class ConverterAbstract
     public function __construct(Array $parameters)
     {
         $this->input = $parameters['input'];
-        $this->ouput = $parameters['output'];
+        $this->output = $parameters['output'];
         $this->channel = $parameters['channel'];
         $this->slug = $parameters['slug'];
         $this->idParameters = $parameters['id'];
