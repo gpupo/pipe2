@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of gpupo/pipe2
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\Pipe2;
 
 use Symfony\Component\Console\Command\Command;
@@ -68,8 +77,7 @@ class ConvertCommand extends Command
                 InputOption::VALUE_OPTIONAL,
                 'Integer prefix for document id',
                 null
-            )
-        ;
+            );
     }
 
     protected function getParameters(InputInterface $input)
@@ -84,7 +92,7 @@ class ConvertCommand extends Command
                 'prefix'    => $input->getOption('idPrefix'),
             ),
             'format'        => ucfirst($input->getOption('format')),
-            'formatOutput'  => ($input->getOption('pretty') == 'true') ? true : false,
+            'formatOutput'  => ($input->getOption('pretty') === 'true') ? true : false,
         );
 
         return $parameters;
@@ -93,10 +101,10 @@ class ConvertCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $parameters = $this->getParameters($input);
-        $validator = new InputValidator;
+        $validator = new InputValidator();
 
         if ($validator->validateInputParameters($parameters)) {
-            $converter = '\\Gpupo\Pipe2\Converter\\' . $parameters['format'] . 'Converter';
+            $converter = '\\Gpupo\Pipe2\Converter\\'.$parameters['format'].'Converter';
             $convert = new $converter($parameters);
             $output->writeln($convert->execute()->getDocument()->saveXml());
         }

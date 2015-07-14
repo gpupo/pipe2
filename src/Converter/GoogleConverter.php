@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of gpupo/pipe2
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\Pipe2\Converter;
 
 use Gpupo\CommonSchema\Sphinx\GoogleSchema;
@@ -9,11 +18,11 @@ class GoogleConverter extends ConverterAbstract implements ConverterInterface
 {
     public function setSchema()
     {
-        $this->schema = new GoogleSchema;
+        $this->schema = new GoogleSchema();
     }
 
     public function setNormalizer()
     {
-        $this->normalizer = new GoogleNormalizer;
+        $this->normalizer = new GoogleNormalizer();
     }
 }

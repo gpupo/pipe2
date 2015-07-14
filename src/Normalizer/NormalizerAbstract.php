@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of gpupo/pipe2
+ *
+ * (c) Gilmar Pupo <g@g1mr.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Gpupo\Pipe2\Normalizer;
 
 use Cocur\Slugify\Slugify;
@@ -8,7 +17,7 @@ abstract class NormalizerAbstract
 {
     public function normalize($field, $value)
     {
-        $methodName = 'normalize' . ucfirst($field);
+        $methodName = 'normalize'.ucfirst($field);
 
         if (method_exists($this, $methodName)) {
             $value = $this->$methodName($value);
@@ -51,7 +60,7 @@ abstract class NormalizerAbstract
         $newUrl = '';
 
         if (array_key_exists('scheme', $parse)) {
-            $newUrl .= $parse['scheme'] . '://';
+            $newUrl .= $parse['scheme'].'://';
         }
 
         if (array_key_exists('host', $parse)) {
@@ -61,7 +70,7 @@ abstract class NormalizerAbstract
         $newUrl .= $parse['path'];
 
         if (!empty($params)) {
-            $newUrl .= '?' . http_build_query($params);
+            $newUrl .= '?'.http_build_query($params);
         }
 
         return $newUrl;
@@ -86,7 +95,7 @@ abstract class NormalizerAbstract
     public function slugify($value)
     {
         if (!$this->slugifyTool) {
-            $this->slugifyTool = new Slugify;
+            $this->slugifyTool = new Slugify();
         }
 
         return $this->slugifyTool->slugify($value);
