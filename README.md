@@ -67,7 +67,7 @@ Download the [latest release](https://github.com/gpupo/pipe2/releases/latest) fo
 You can run these commands to easily access ``pipe2`` from anywhere on
 your system:
 
-    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v0.3/pipe2.phar -O /usr/local/bin/pipe2
+    $ sudo wget https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar -O /usr/local/bin/pipe2
 
 then:
 
@@ -80,10 +80,10 @@ Then, just run ``pipe2``.
 
 ## Available commands
 
-  - convert:    Convert Xml file to xmlpipe2 format
-  - generate:   Generate blank Document xmlpipe2 format
-  - help:       Displays help for a command
-  - list:       Lists commands
+  - ``convert``:    Convert Xml file to xmlpipe2 format
+  - ``generate``:   Generate blank Document xmlpipe2 format
+  - ``help``:       Displays help for a command
+  - ``list``:       Lists commands
 
 ## Help Usage:
 
@@ -93,7 +93,6 @@ Then, just run ``pipe2``.
 ## Todo
 
 - [ ] convert remote files
-- [ ] deal with unexpected problems
 - [ ] deal with gz compression
 
 
