@@ -46,7 +46,7 @@ abstract class NormalizerAbstract
 
             $blackList = array(
                 'utm_campaign',
-                'utm_source' ,
+                'utm_source',
                 'utm_medium',
                 'utm_term',
                 'utm_item',

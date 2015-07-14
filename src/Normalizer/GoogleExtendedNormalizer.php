@@ -27,7 +27,7 @@ class GoogleExtendedNormalizer extends GoogleNormalizer
 
     protected function normalizePrice($value)
     {
-        $strpos = function ($needle) use ($value) {
+        $strpos = function($needle) use ($value) {
             return strpos($value, $needle);
         };
 
