@@ -39,12 +39,30 @@ class Command extends Core
                 'outputDocument',
                 InputArgument::REQUIRED,
                 'Output Document Xml file path'
+            )
+            ->addOption(
+                'idField',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Item field to fill document id',
+                'id'
+            )->addOption(
+                'pretty',
+                null,
+                InputOption::VALUE_OPTIONAL,
+                'Nicely formats output with indentation and extra space',
+                false
             );
+
     }
 
     protected function getParameters(InputInterface $input)
     {
-        $parameters = [];
+        $parameters = [
+            'idField'       => $input->getOption('idField'),
+            'formatOutput'  => ($input->getOption('pretty') === 'true') ? true : false,
+        ];
+
         foreach(['first', 'second', 'output'] as $key) {
             $argument = $key . 'Document';
             $parameters[$argument] = $input->getArgument($argument);
@@ -60,7 +78,7 @@ class Command extends Core
 
         if ($validator->validateInputParameters($parameters)) {
             $combiner = new Combiner($parameters);
-            //$output->writeln($combiner->execute()->getDocument()->saveXml());
+            $output->writeln($combiner->getDocument()->saveXml());
         }
     }
 }

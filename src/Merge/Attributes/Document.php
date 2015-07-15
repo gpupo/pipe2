@@ -15,4 +15,13 @@ use Gpupo\Pipe2\DocumentAbstract;
 
 class Document extends DocumentAbstract
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->docset = $this->createElement('channel');
+        $rss = $this->createElement('rss');
+        $rss->appendChild($this->docset);
+        $this->appendChild($rss);
+    }
+
 }
