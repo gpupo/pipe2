@@ -41,4 +41,15 @@ class Command extends Core
                 'Output Document Xml file path'
             );
     }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $parameters = $this->getParameters($input);
+        $validator = new InputValidator();
+
+        if ($validator->validateInputParameters($parameters)) {
+
+            echo 'foo';
+        }
+    }
 }
