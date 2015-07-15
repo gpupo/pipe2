@@ -30,4 +30,19 @@ trait DocumentContainerTrait
         return $this;
     }
 
+    protected function populateDocument($itemElement, $item)
+    {
+        foreach ($item as $key => $value) {
+            $tag = $this->document->createElement($key);
+            $tag->appendChild(
+                $this->document->createTextNode($value)
+            );
+
+            $itemElement->appendChild($tag);
+        }
+
+        $this->document->docset->appendChild($itemElement);
+
+        return $this;
+    }
 }

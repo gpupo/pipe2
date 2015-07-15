@@ -100,17 +100,7 @@ class Combiner
             $itemElement = $this->document->createElement('item');
             $id = $item->get($this->getIdField());
             $itemElement->setAttribute('id', $id);
-
-            foreach ($item as $key => $value) {
-                $tag = $this->document->createElement($key);
-                $tag->appendChild(
-                    $this->document->createTextNode($value)
-                );
-
-                $itemElement->appendChild($tag);
-            }
-
-            $this->document->docset->appendChild($itemElement);
+            $this->populateDocument($itemElement, $item);
         }
     }
 }
