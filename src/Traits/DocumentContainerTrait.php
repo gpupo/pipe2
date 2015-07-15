@@ -34,9 +34,12 @@ trait DocumentContainerTrait
     {
         foreach ($item as $key => $value) {
             $tag = $this->document->createElement($key);
-            $tag->appendChild(
-                $this->document->createTextNode($value)
-            );
+
+            if (is_numeric($value)) {
+                $tag->appendChild($this->document->createTextNode($value));
+            } else {
+                $tag->appendChild($this->document->createCDATASection($value));
+            }
 
             $itemElement->appendChild($tag);
         }
