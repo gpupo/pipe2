@@ -9,15 +9,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace Gpupo\Pipe2;
 
 require __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Gpupo\Pipe2\ConvertCommand;
-use Gpupo\Pipe2\GenerateCommand;
 
-$application = new Application('Pipe2 - Converter to XmlPipe2', '@package_version@');
-$application->add(new ConvertCommand);
-$application->add(new GenerateCommand);
+$application = new Application('Pipe2 - XML tool', '@package_version@');
+$application->add(new Converter\Command());
+$application->add(new Merge\Attributes\Command());
+$application->add(new GenerateCommand());
 
 $application->run();

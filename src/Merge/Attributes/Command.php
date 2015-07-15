@@ -9,19 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Gpupo\Pipe2;
+namespace Gpupo\Pipe2\Merge\Attributes;
 
+use Symfony\Component\Console\Command\Command as Core;
+use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Gpupo\Pipe2\Converter\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class GenerateCommand extends Command
+class Command extends Core
 {
     protected function configure()
     {
         parent::configure();
         $this
-            ->setName('generate')
-            ->setDescription('Generate blank Document xmlpipe2 format');
+            ->setName('merge-attributes')
+            ->setDescription('Merge XML Documents with Similar Structure Where Second Document Contains Attributes');
     }
 
     protected function getParameters(InputInterface $input)
