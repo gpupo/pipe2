@@ -38,7 +38,7 @@ class Document extends \DOMDocument
 
         if ($slug) {
             foreach ($schema->getSluggables() as $key) {
-                $elements->appendChild($this->factoryTag('field', $key.'_slug', array('attr' => 'string')));
+                $elements->appendChild($this->factoryTag('field', $key.'_slug', ['attr' => 'string']));
             }
         }
 

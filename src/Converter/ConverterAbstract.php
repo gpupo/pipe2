@@ -85,7 +85,7 @@ abstract class ConverterAbstract
 
     protected function fieldReduce(Array $item)
     {
-        $list = array();
+        $list = [];
 
         foreach ($item as $value) {
             $value['tag'] = $this->schema->normalizeFieldName($value['tag']);
@@ -119,16 +119,16 @@ abstract class ConverterAbstract
 
     protected function parser()
     {
-        $list = array();
+        $list = [];
 
         foreach ($this->parser_create() as $data) {
             if ($data['tag'] !== 'item') {
                 continue;
             }
 
-            $item = array(
+            $item = [
                 'channel' => $this->channel,
-            );
+            ];
             foreach ($data['item'] as $product) {
                 if (array_key_exists('tag', $product) && array_key_exists('value', $product)) {
                     $item[$product['tag']] = $product['value'];
@@ -145,12 +145,12 @@ abstract class ConverterAbstract
 
     protected function parser_create()
     {
-        $list = array();
+        $list = [];
 
         $doc = new \DOMDocument();
         if (@$doc->load($this->input)) {
             $xml = $doc->saveXML();
-            $values = $index = array();
+            $values = $index = [];
             $parser = xml_parser_create();
             xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
             xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);

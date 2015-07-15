@@ -44,13 +44,13 @@ abstract class NormalizerAbstract
         if (array_key_exists('query', $parse)) {
             parse_str($parse['query'], $params);
 
-            $blackList = array(
+            $blackList = [
                 'utm_campaign',
                 'utm_source',
                 'utm_medium',
                 'utm_term',
                 'utm_item',
-            );
+            ];
 
             foreach ($blackList as $key) {
                 unset($params[$key]);

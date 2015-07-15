@@ -33,9 +33,9 @@ class GoogleExtendedConverter extends GoogleConverter
             $item['sale_price_percentage'] = ($item['price'] - $item['sale_price']) / $item['price'] * 100;
         }
 
-        $parts = array();
+        $parts = [];
 
-        foreach (array('title', 'color', 'size', 'id', 'brand', 'channel', 'category', 'sku') as $key) {
+        foreach (['title', 'color', 'size', 'id', 'brand', 'channel', 'category', 'sku'] as $key) {
             if (array_key_exists($key, $item)) {
                 $parts[] = $item[$key];
             }

@@ -15,19 +15,19 @@ class GoogleExtendedNormalizer extends GoogleNormalizer
 {
     protected function normalizeGender($value)
     {
-        $array = array(
+        $array = [
             'masculino'     => 'male',
             'feminino'      => 'female',
             'unissex'       => 'unisex',
             ''              => 'unisex',
-        );
+        ];
 
         return str_replace(array_keys($array), $array, strtolower($value));
     }
 
     protected function normalizePrice($value)
     {
-        $strpos = function($needle) use ($value) {
+        $strpos = function ($needle) use ($value) {
             return strpos($value, $needle);
         };
 

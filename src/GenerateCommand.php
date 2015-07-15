@@ -11,8 +11,8 @@
 
 namespace Gpupo\Pipe2;
 
-use Symfony\Component\Console\Input\InputInterface;
 use Gpupo\Pipe2\Converter\Command;
+use Symfony\Component\Console\Input\InputInterface;
 
 class GenerateCommand extends Command
 {
