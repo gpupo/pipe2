@@ -35,7 +35,7 @@ Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe
 
 Merge XML Documents with *Similar Structure* Where Second Document Contains *Attributes*:
 
-    pipe2 merge-attributes data/acme.googleshopping.xml data/merge/attributes/secondDocument.xml data/merge/attributes/outputDocument.xml
+    pipe2 merge-attributes data/acme.googleshopping.xml data/merge/attributes/secondDocument.xml --idField="g:id" --pretty=true
 
 ### Advanced
 

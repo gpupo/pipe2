@@ -35,11 +35,6 @@ class Command extends Core
                 InputArgument::REQUIRED,
                 'Second Document Xml file path'
             )
-            ->addArgument(
-                'outputDocument',
-                InputArgument::REQUIRED,
-                'Output Document Xml file path'
-            )
             ->addOption(
                 'idField',
                 null,
@@ -63,8 +58,7 @@ class Command extends Core
             'formatOutput'  => ($input->getOption('pretty') === 'true') ? true : false,
         ];
 
-        foreach(['first', 'second', 'output'] as $key) {
-            $argument = $key . 'Document';
+        foreach(['firstDocument', 'secondDocument'] as $argument) {
             $parameters[$argument] = $input->getArgument($argument);
         }
 
