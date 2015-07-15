@@ -31,20 +31,21 @@ Then, just run ``pipe2``.
 
 Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format;
 
-    pipe2 convert data/google-shopping-sample.xml
+    pipe2 convert data/acme.googleshopping.xml
+
+Merge XML Documents with *Similar Structure* Where Second Document Contains *Attributes*:
+
+    pipe2 merge-attributes data/acme.googleshopping.xml data/merge/attributes/secondDocument.xml data/merge/attributes/outputDocument.xml
+
+### Advanced
 
 with channel name:
 
-    pipe2 convert --channel=amazon data/google-shopping-min-sample.xml
-
+    pipe2 convert --channel=amazon data/acme.googleshopping.xml
 
 Generate blank document with nicely formats output with indentation:
 
     pipe2 generate --pretty=true
-
-Merge XML Documents with *Similar Structure* Where Second Document Contains *Attributes*:
-
-    pipe2 merge-attributes data/merge/attributes/firstDocument.xml data/merge/attributes/secondDocument.xml data/merge/attributes/outputDocument.xml
 
 
 ## Available commands

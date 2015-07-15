@@ -36,10 +36,21 @@ class Command extends Core
                 'Second Document Xml file path'
             )
             ->addArgument(
-                'output',
+                'outputDocument',
                 InputArgument::REQUIRED,
                 'Output Document Xml file path'
             );
+    }
+
+    protected function getParameters(InputInterface $input)
+    {
+        $parameters = [];
+        foreach(['first', 'second', 'output'] as $key) {
+            $argument = $key . 'Document';
+            $parameters[$argument] = $input->getArgument($argument);
+        }
+
+        return $parameters;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -48,8 +59,8 @@ class Command extends Core
         $validator = new InputValidator();
 
         if ($validator->validateInputParameters($parameters)) {
-
-            echo 'foo';
+            $combiner = new Combiner($parameters);
+            //$output->writeln($combiner->execute()->getDocument()->saveXml());
         }
     }
 }

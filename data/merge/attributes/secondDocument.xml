@@ -1,12 +1,10 @@
-<?xml version="1.0"?>
-<catalog>
-<book id="bk106">
-      <genre>Romance</genre>
-   </book>
-   <book id="bk107">
-      <genre>Romance</genre>
-   </book>
-   <book id="bk108">
-      <genre>Horror</genre>
-   </book>
-</catalog>
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
+    <channel>
+        <title>Acme Corporation, extra document</title>
+        <item>
+            <g:id>292</g:id>
+            <video>https://www.youtube.com/results?search_query=acme%20anvil%20cartoon</video>
+        </item>
+    </channel>
+</rss>

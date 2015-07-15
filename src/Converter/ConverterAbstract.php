@@ -11,16 +11,19 @@
 
 namespace Gpupo\Pipe2\Converter;
 
-use Gpupo\Pipe2\Document;
+use Gpupo\Pipe2\Traits\ParserTrait;
+use Gpupo\Pipe2\Traits\DocumentContainerTrait;
 
 abstract class ConverterAbstract
 {
+    use ParserTrait;
+    use DocumentContainerTrait;
+
     protected $input;
     protected $output;
     protected $channel;
     protected $slug;
     protected $idParameters;
-    protected $document;
     protected $schema;
     protected $normalizer;
 
@@ -38,13 +41,9 @@ abstract class ConverterAbstract
 
     protected function factoryDocument($formatOutput)
     {
-        $this->document = new Document($this->schema, $this->slug);
-        $this->document->formatOutput = $formatOutput;
-    }
+        $this->setDocument(new Document($this->schema, $this->slug), $formatOutput);
 
-    public function getDocument()
-    {
-        return $this->document;
+        return $this;
     }
 
     public function getNormalizer()
@@ -126,14 +125,7 @@ abstract class ConverterAbstract
                 continue;
             }
 
-            $item = [
-                'channel' => $this->channel,
-            ];
-            foreach ($data['item'] as $product) {
-                if (array_key_exists('tag', $product) && array_key_exists('value', $product)) {
-                    $item[$product['tag']] = $product['value'];
-                }
-            }
+            $item = array_merge(['channel' => $this->channel], $this->parserItems($data));
 
             $normalized = $this->getNormalizer()->normalizeArrayValues($this->schema->getKeys(), $item);
 
@@ -145,39 +137,6 @@ abstract class ConverterAbstract
 
     protected function parser_create()
     {
-        $list = [];
-
-        $doc = new \DOMDocument();
-        if (@$doc->load($this->input)) {
-            $xml = $doc->saveXML();
-            $values = $index = [];
-            $parser = xml_parser_create();
-            xml_parser_set_option($parser, XML_OPTION_CASE_FOLDING, 0);
-            xml_parser_set_option($parser, XML_OPTION_SKIP_WHITE, 1);
-            xml_parse_into_struct($parser, $xml, $values, $index);
-            xml_parser_free($parser);
-
-            foreach ($index as $k => $v) {
-                if ($k === 'item') {
-                    for ($i = 0; $i < count($v); $i += 2) {
-                        $count = (empty($count) ? $v[$i] : ++$count);
-                        $offset = $v[$i] + 1;
-                        $len = $v[$i + 1] - $offset;
-                        $list[$count] = $values[$v[0]];
-                        $item = $this->fieldReduce(array_slice($values, $offset, $len));
-
-                        if (!empty($item)) {
-                            $list[$count]['item'] = $item;
-                        }
-                    }
-
-                    break;
-                }
-
-                $list[] = $values[$v[0]];
-            }
-        }
-
-        return $list;
+        return $this->parserFromFile($this->input);
     }
 }
