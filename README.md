@@ -25,7 +25,7 @@ Generate blank document with nicely formats output with indentation:
 
 ## Installation
 
-The Pipe2 is a small PHP application that must be installed once in your computer.
+The *Pipe2* is a small PHP application that must be installed once in your computer.
 
 Installation on Linux and Mac OS X
 
@@ -39,7 +39,7 @@ Installation on Windows
 
 ```bat
 
-    c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar');" > pipe2
+c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar');" > pipe2
 
 ```
 Then, just run ``pipe2``.
