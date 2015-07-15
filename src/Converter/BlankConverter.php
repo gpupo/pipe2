@@ -15,6 +15,6 @@ class BlankConverter extends GoogleConverter
 {
     protected function parser()
     {
-        return array();
+        return [];
     }
 }

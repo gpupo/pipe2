@@ -82,18 +82,18 @@ class Command extends Core
 
     protected function getParameters(InputInterface $input)
     {
-        $parameters = array(
+        $parameters = [
             'input'         => $input->getArgument('file'),
             'output'        => $input->getOption('output'),
             'channel'       => $input->getOption('channel'),
             'slug'          => $input->getOption('slug'),
-            'id'            => array(
+            'id'            => [
                 'field'     => $input->getOption('idField'),
                 'prefix'    => $input->getOption('idPrefix'),
-            ),
+            ],
             'format'        => ucfirst($input->getOption('format')),
             'formatOutput'  => ($input->getOption('pretty') === 'true') ? true : false,
-        );
+        ];
 
         return $parameters;
     }
