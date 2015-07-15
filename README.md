@@ -1,4 +1,5 @@
 [![Build Status](https://secure.travis-ci.org/gpupo/pipe2.png?branch=master)](http://travis-ci.org/gpupo/pipe2)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gpupo/pipe2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gpupo/pipe2/?branch=master)
 
 # Pipe2
 
@@ -8,7 +9,9 @@ Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe
 ## Simple usage:
 
 ```bash
+
     pipe2 convert data/google-shopping-sample.xml
+
 ```
 
 with channel name:
@@ -26,14 +29,19 @@ The Pipe2 is a small PHP application that must be installed once in your compute
 
 Installation on Linux and Mac OS X
 
-```
-    $ sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar -o /usr/local/bin/pipe2
-    $ sudo chmod a+x /usr/local/bin/symfony
+```bash
+
+sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar -o /usr/local/bin/pipe2;
+sudo chmod a+x /usr/local/bin/pipe2;
+
 ```
 Installation on Windows
 
+```bat
+
     c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar');" > pipe2
 
+```
 Then, just run ``pipe2``.
 
 # Help
@@ -41,20 +49,22 @@ Then, just run ``pipe2``.
 ## Available commands
 
 
-| Command        | Description   |
-| -------------- |:-------------:|
-| ``convert``    | Convert Xml file to xmlpipe2 format  
-| ``generate``   | Generate blank Document xmlpipe2 format
-| ``help``       | Displays help for a command
-| ``list``       | Lists commands
-| ``merge-attributes``|  Merge XML Documents with Similar Structure Where Second Document Contains Attributes
-
+| Command               | Description
+| ----------------------|:-------------
+| ``convert``           | Convert Xml file to xmlpipe2 format  
+| ``merge-attributes``  | Merge XML Documents with *Similar Structure* Where Second Document Contains *Attributes*
+| ``generate``          | Generate blank Document xmlpipe2 format
+| ``list``              | Lists commands
+| ``help``              | Displays help for a command
 
 ## Help Usage:
 
-    pipe2 help convert;
-    pipe2 help generate;
+```bash
 
+pipe2 help convert;
+pipe2 help generate;
+
+```
 ### Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
@@ -97,7 +107,7 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 - [ ] convert remote files
 - [ ] deal with ``gz`` compression
-- [ ] ``merge-additional-elements``: Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
+- [ ] ``merge-elements``: Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
 
 ## License
 
