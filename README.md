@@ -7,8 +7,9 @@ Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe
 
 ## Simple usage:
 
+```bash
     pipe2 convert data/google-shopping-sample.xml
-
+```
 
 with channel name:
 
@@ -25,9 +26,10 @@ The Pipe2 is a small PHP application that must be installed once in your compute
 
 Installation on Linux and Mac OS X
 
+```
     $ sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar -o /usr/local/bin/pipe2
     $ sudo chmod a+x /usr/local/bin/symfony
-
+```
 Installation on Windows
 
     c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar');" > pipe2
@@ -38,14 +40,14 @@ Then, just run ``pipe2``.
 
 ## Available commands
 
-  - ``convert``:    Convert Xml file to xmlpipe2 format  
-  - ``generate``:   Generate blank Document xmlpipe2 format
-  - ``help``:       Displays help for a command
-  - ``list``:       Lists commands
-  - ``merge-additional-elements``:  Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
-  Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
-  Merge XML Documents with Similar Structure Where Second Document Contains Attributes
 
+| Command        | Description   |
+| -------------- |:-------------:|
+| ``convert``    | Convert Xml file to xmlpipe2 format  
+| ``generate``   | Generate blank Document xmlpipe2 format
+| ``help``       | Displays help for a command
+| ``list``       | Lists commands
+| ``merge-attributes``|  Merge XML Documents with Similar Structure Where Second Document Contains Attributes
 
 
 ## Help Usage:
@@ -61,6 +63,8 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     pipe2 convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 ### Sphinx Search Index Example
+
+```bash
 
     source acmeSource
     {
@@ -80,6 +84,7 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
       expand_keywords = 1
       min_word_len    = 2
     }
+```
 
 For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
@@ -92,6 +97,7 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 - [ ] convert remote files
 - [ ] deal with ``gz`` compression
+- [ ] ``merge-additional-elements``: Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
 
 ## License
 

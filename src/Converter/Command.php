@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Gpupo\Pipe2;
+namespace Gpupo\Pipe2\Converter;
 
-use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Command\Command as Core;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ConvertCommand extends Command
+class Command extends Core
 {
     protected function configure()
     {
