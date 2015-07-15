@@ -27,7 +27,7 @@ c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pip
 Then, just run ``pipe2``.
 
 
-## Usage:
+## Usage
 
 Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format;
 
@@ -58,7 +58,7 @@ Merge XML Documents with *Similar Structure* Where Second Document Contains *Att
 | ``list``              | Lists commands
 | ``help``              | Displays help for a command
 
-## Help:
+## Help
 
 Displays help for a command
 
