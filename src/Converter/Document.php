@@ -9,23 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Gpupo\Pipe2;
+namespace Gpupo\Pipe2\Converter;
 
 use Gpupo\CommonSchema\SchemaInterface;
+use Gpupo\Pipe2\DocumentAbstract;
 
 /**
  * @see http://sphinxsearch.com/docs/current.html#xmlpipe2
  */
-class Document extends \DOMDocument
+class Document extends DocumentAbstract
 {
-    public $docset;
+    protected $elementPrefix = 'sphinx:';
 
     public function __construct(SchemaInterface $schema, $slug = false)
     {
         parent::__construct();
-        $this->encoding = 'utf-8';
-        $comment = $this->createComment('Generate by Pipe2 on '.date('r').' | See https://github.com/gpupo/pipe2');
-        $this->appendChild($comment);
         $this->docset = $this->createElement('sphinx:docset');
         $this->appendChild($this->docset);
         $elements = $this->createElement('sphinx:schema');
@@ -43,21 +41,5 @@ class Document extends \DOMDocument
         }
 
         $this->docset->appendChild($elements);
-    }
-
-    protected function factoryTag($type, $key, $prop)
-    {
-        $tag = $this->createElement('sphinx:'.$type);
-
-        if (is_array($prop)) {
-            $tag->setAttribute('name', $key);
-            foreach ($prop as $k => $v) {
-                $tag->setAttribute($k, $v);
-            }
-        } else {
-            $tag->setAttribute('name', $prop);
-        }
-
-        return $tag;
     }
 }

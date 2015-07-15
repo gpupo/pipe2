@@ -9,14 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Gpupo\Pipe2;
+namespace Gpupo\Pipe2\Merge\Attributes;
 
 class InputValidator
 {
     public function validateInputParameters(Array $parameters)
     {
-        if ($parameters['format'] !== 'Blank' && !file_exists($parameters['input'])) {
-            throw new \InvalidArgumentException('Input File not found');
+        foreach(['firstDocument', 'secondDocument'] as $key) {
+            $filePath = $parameters[$key];
+            if (!file_exists($filePath)) {
+                throw new \InvalidArgumentException('Input File '.$filePath.' not found');
+            }
         }
 
         return true;
