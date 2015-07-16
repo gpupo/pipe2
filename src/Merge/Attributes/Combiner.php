@@ -11,10 +11,10 @@
 
 namespace Gpupo\Pipe2\Merge\Attributes;
 
-use Gpupo\Pipe2\Traits\ParserTrait;
-use Gpupo\Pipe2\Traits\DocumentContainerTrait;
 use Gpupo\Common\Entity\Collection;
 use Gpupo\Common\Entity\CollectionInterface;
+use Gpupo\Pipe2\Traits\DocumentContainerTrait;
+use Gpupo\Pipe2\Traits\ParserTrait;
 
 class Combiner
 {
@@ -76,21 +76,21 @@ class Combiner
 
     protected function combine(CollectionInterface $first, CollectionInterface $second)
     {
-        foreach($first as $item) {
+        foreach ($first as $item) {
             if (!$this->hasKey($item)) {
                 continue;
             }
             $key =  $item->get($this->idField);
 
-            if($second->containsKey($key)) {
-                foreach($second->get($key) as $field => $value)
-                {
+            if ($second->containsKey($key)) {
+                foreach ($second->get($key) as $field => $value) {
                     if (!$item->containsKey($field)) {
                         $item->set($field, $value);
                     }
                 }
             }
         }
+
         return $first;
     }
 

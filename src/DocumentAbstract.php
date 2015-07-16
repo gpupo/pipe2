@@ -25,7 +25,7 @@ abstract class DocumentAbstract extends \DOMDocument
         $comment = $this->createComment('Generate by Pipe2 on '.date('r').' | See https://github.com/gpupo/pipe2');
         $this->appendChild($comment);
     }
-    
+
     protected function factoryTag($type, $key, $prop)
     {
         $tag = $this->createElement($this->elementPrefix.$type);

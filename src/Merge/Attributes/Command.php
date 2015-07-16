@@ -48,7 +48,6 @@ class Command extends Core
                 'Nicely formats output with indentation and extra space',
                 false
             );
-
     }
 
     protected function getParameters(InputInterface $input)
@@ -58,7 +57,7 @@ class Command extends Core
             'formatOutput'  => ($input->getOption('pretty') === 'true') ? true : false,
         ];
 
-        foreach(['firstDocument', 'secondDocument'] as $argument) {
+        foreach (['firstDocument', 'secondDocument'] as $argument) {
             $parameters[$argument] = $input->getArgument($argument);
         }
 
