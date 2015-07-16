@@ -26,7 +26,7 @@ c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.1/pip
 ```
 Then, just run ``pipe2``.
 
-![screen shot main](http://www.g1mr.com/pipe2/asset/screen-shot-main.png)]
+![screen shot main](http://www.g1mr.com/pipe2/asset/screen-shot-main.png)
 
 ## Usage
 
@@ -34,9 +34,16 @@ Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe
 
     pipe2 convert data/acme.googleshopping.xml
 
+>    This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
+
 Merge XML Documents with *Similar Structure* Where Second Document Contains *Attributes*:
 
     pipe2 merge-attributes data/acme.googleshopping.xml data/merge/attributes/secondDocument.xml --idField="g:id" --pretty=true
+
+>  This example uses the **input** sample files [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
+>  and [data/merge/attributes/secondDocument.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/secondDocument.xml)
+>  and creates the **output** sample file [data/merge/attributes/output.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/output.xml):
+
 
 ### Advanced
 
@@ -71,9 +78,9 @@ pipe2 help generate;
 
 ```
 
-![screen-shot-help-convert.png](http://www.g1mr.com/pipe2/asset/screen-shot-help-convert.png)]
+![screen-shot-help-convert](http://www.g1mr.com/pipe2/asset/screen-shot-help-convert.png)
 
-![screen-shot-help-attributes](http://www.g1mr.com/pipe2/asset/screen-shot-help-attributes.png)]
+![screen-shot-help-attributes](http://www.g1mr.com/pipe2/asset/screen-shot-help-attributes.png)
 
 ### Samples
 
