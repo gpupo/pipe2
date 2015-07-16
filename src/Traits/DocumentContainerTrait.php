@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  *
  * For more information, see
- * <http://gpupo.github.io/pipe2/>.
+ * <http://www.g1mr.com/pipe2/>.
  */
 
 namespace Gpupo\Pipe2\Traits;
