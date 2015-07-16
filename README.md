@@ -7,13 +7,13 @@ XML command line Tool
 
 ## Installation
 
-The *[Pipe2](http://gpupo.github.io/pipe2/)* is a small PHP application that must be installed once in your computer.
+The *[Pipe2](http://www.g1mr.com/pipe2/)* is a small PHP application that must be installed once in your computer.
 
 Installation on Linux and Mac OS X
 
 ```bash
 
-sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar -o /usr/local/bin/pipe2;
+sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar -o /usr/local/bin/pipe2;
 sudo chmod a+x /usr/local/bin/pipe2;
 
 ```
@@ -21,11 +21,12 @@ Installation on Windows
 
 ```bat
 
-c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.0/pipe2.phar');" > pipe2
+c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar');" > pipe2
 
 ```
 Then, just run ``pipe2``.
 
+![screen shot main](http://www.g1mr.com/pipe2/asset/screen-shot-main.png)]
 
 ## Usage
 
@@ -69,6 +70,11 @@ pipe2 help convert;
 pipe2 help generate;
 
 ```
+
+![screen-shot-help-convert.png](http://www.g1mr.com/pipe2/asset/screen-shot-help-convert.png)]
+
+![screen-shot-help-attributes](http://www.g1mr.com/pipe2/asset/screen-shot-help-attributes.png)]
+
 ### Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
@@ -118,4 +124,4 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 MIT, see LICENSE.
 
 [Latest release](https://github.com/gpupo/pipe2/releases/latest)
-[Website](http://gpupo.github.io/pipe2/)
+[Website](http://www.g1mr.com/pipe2/)
