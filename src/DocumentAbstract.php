@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  *
  * For more information, see
- * <http://gpupo.github.io/pipe2/>.
+ * <http://www.g1mr.com/pipe2/>.
  */
 
 namespace Gpupo\Pipe2;
@@ -25,7 +25,8 @@ abstract class DocumentAbstract extends \DOMDocument
     public function __construct()
     {
         parent::__construct();
-        $comment = $this->createComment('Generate by Pipe2 on '.date('r').' | See https://github.com/gpupo/pipe2');
+        $comment = $this->createComment(' Generate by Pipe2 on ['.date('r')
+            .'] | For more information, see <http://www.g1mr.com/pipe2/> ');
         $this->appendChild($comment);
     }
 
