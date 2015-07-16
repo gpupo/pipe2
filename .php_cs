@@ -14,6 +14,9 @@ This file is part of gpupo/pipe2
 For the full copyright and license information, please view the LICENSE
 file that was distributed with this source code.
 
+For more information, see
+<http://gpupo.github.io/pipe2/>.
+
 EOF;
 
 HeaderCommentFixer::setHeader($header);

@@ -7,6 +7,9 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * For more information, see
+ * <http://gpupo.github.io/pipe2/>.
  */
 
 namespace Gpupo\Pipe2;
