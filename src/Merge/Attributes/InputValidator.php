@@ -15,7 +15,7 @@ class InputValidator
 {
     public function validateInputParameters(Array $parameters)
     {
-        foreach(['firstDocument', 'secondDocument'] as $key) {
+        foreach (['firstDocument', 'secondDocument'] as $key) {
             $filePath = $parameters[$key];
             if (!file_exists($filePath)) {
                 throw new \InvalidArgumentException('Input File '.$filePath.' not found');

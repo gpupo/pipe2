@@ -23,5 +23,4 @@ class Document extends DocumentAbstract
         $rss->appendChild($this->docset);
         $this->appendChild($rss);
     }
-
 }

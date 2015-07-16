@@ -11,8 +11,8 @@
 
 namespace Gpupo\Pipe2\Converter;
 
-use Gpupo\Pipe2\Traits\ParserTrait;
 use Gpupo\Pipe2\Traits\DocumentContainerTrait;
+use Gpupo\Pipe2\Traits\ParserTrait;
 
 abstract class ConverterAbstract
 {
