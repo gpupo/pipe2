@@ -116,8 +116,18 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 ## License
 
-MIT, see LICENSE.
+MIT, see [LICENSE](https://github.com/gpupo/pipe2/blob/master/LICENSE).
 
 ---
 
 [Website](http://www.g1mr.com/pipe2/) | [Latest release](https://github.com/gpupo/pipe2/releases/latest)
+
+<!--
+# How rebuild website from README.md
+
+    mkdir -p _site/; cp README.md _site/;
+    git checkout gh-pages;
+    cat _includes/init.md _site/README.md > index.md
+    git commit -am 'Automatic Rebuild index from README.md';
+    git push; git checkout master;
+-->
