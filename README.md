@@ -11,19 +11,14 @@ The *[Pipe2](http://www.g1mr.com/pipe2/)* is a small PHP application that must b
 
 Installation on Linux and Mac OS X
 
-```bash
+    sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar -o /usr/local/bin/pipe2;
+    sudo chmod a+x /usr/local/bin/pipe2;
 
-sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar -o /usr/local/bin/pipe2;
-sudo chmod a+x /usr/local/bin/pipe2;
 
-```
 Installation on Windows
 
-```bat
+    c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar');" > pipe2
 
-c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar');" > pipe2
-
-```
 Then, just run ``pipe2``.
 
 ![screen shot main](http://www.g1mr.com/pipe2/asset/screen-shot-main.png)
@@ -71,12 +66,8 @@ Generate blank document with nicely formats output with indentation:
 
 Displays help for a command
 
-```bash
-
-pipe2 help convert;
-pipe2 help generate;
-
-```
+    pipe2 help convert;
+    pipe2 help generate;
 
 ![screen-shot-help-convert](http://www.g1mr.com/pipe2/asset/screen-shot-help-convert.png)
 
@@ -90,8 +81,6 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
     pipe2 convert --channel=acme data/acme.googleshopping.xml > data/acme.xmlpipe2.xml
 
 ### Sphinx Search Index Example
-
-```bash
 
     source acmeSource
     {
@@ -111,7 +100,6 @@ This example uses the **input** sample file [data/acme.googleshopping.xml](https
       expand_keywords = 1
       min_word_len    = 2
     }
-```
 
 For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
@@ -130,5 +118,6 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 MIT, see LICENSE.
 
-[Latest release](https://github.com/gpupo/pipe2/releases/latest)
-[Website](http://www.g1mr.com/pipe2/)
+---
+
+[Website](http://www.g1mr.com/pipe2/) | [Latest release](https://github.com/gpupo/pipe2/releases/latest)
