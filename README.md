@@ -11,13 +11,13 @@ The *[Pipe2](http://www.g1mr.com/pipe2/)* is a small PHP application that must b
 
 Installation on Linux and Mac OS X
 
-    sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar -o /usr/local/bin/pipe2;
+    sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/1.1/pipe2.phar -o /usr/local/bin/pipe2;
     sudo chmod a+x /usr/local/bin/pipe2;
 
 
 Installation on Windows
 
-    c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/v1.1/pipe2.phar');" > pipe2
+    c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/1.1/pipe2.phar');" > pipe2
 
 Then, just run ``pipe2``.
 
