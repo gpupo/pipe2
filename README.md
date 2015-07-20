@@ -14,7 +14,6 @@ Installation on Linux and Mac OS X
     sudo curl -LsS https://github.com/gpupo/pipe2/releases/download/1.1/pipe2.phar -o /usr/local/bin/pipe2;
     sudo chmod a+x /usr/local/bin/pipe2;
 
-
 Installation on Windows
 
     c:\> php -r "readfile('https://github.com/gpupo/pipe2/releases/download/1.1/pipe2.phar');" > pipe2
@@ -37,7 +36,7 @@ Merge XML Documents with *Similar Structure* Where Second Document Contains *Att
 
 >  This example uses the **input** sample files [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
 >  and [data/merge/attributes/secondDocument.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/secondDocument.xml)
->  and creates the **output** sample file [data/merge/attributes/output.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/output.xml):
+>  and creates the **output** sample file [data/merge/attributes/output.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/output.xml)
 
 
 ### Advanced
