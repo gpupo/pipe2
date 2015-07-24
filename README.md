@@ -20,8 +20,6 @@ Installation on Windows
 
 Then, just run ``pipe2``.
 
-![screen shot main](http://www.g1mr.com/pipe2/asset/screen-shot-main.png)
-
 ## Usage
 
 Convert XML file to [XMLPipe2](http://sphinxsearch.com/docs/current.html#xmlpipe2) format;
@@ -68,10 +66,6 @@ Displays help for a command
     pipe2 help convert;
     pipe2 help generate;
 
-![screen-shot-help-convert](http://www.g1mr.com/pipe2/asset/screen-shot-help-convert.png)
-
-![screen-shot-help-attributes](http://www.g1mr.com/pipe2/asset/screen-shot-help-attributes.png)
-
 ### Samples
 
 This example uses the **input** sample file [data/acme.googleshopping.xml](https://github.com/gpupo/pipe2/blob/master/data/acme.googleshopping.xml)
@@ -109,24 +103,10 @@ For Sphinx Search config file example, see ``data/sphinx.sample.conf``
 
 ## Todo
 
-- [ ] convert remote files
-- [ ] deal with ``gz`` compression
-- [ ] ``merge-elements``: Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
+- convert remote files
+- deal with ``gz`` compression
+- ``merge-elements``: Merge XML Documents with Similar Structure Where Second Document Contains Additional Elements
 
 ## License
 
 MIT, see [LICENSE](https://github.com/gpupo/pipe2/blob/master/LICENSE).
-
----
-
-[Website](http://www.g1mr.com/pipe2/) | [Latest release](https://github.com/gpupo/pipe2/releases/latest)
-
-<!--
-# How rebuild website from README.md
-
-    mkdir -p _site/; cp README.md _site/;
-    git checkout gh-pages;
-    cat _includes/init.md _site/README.md > index.md
-    git commit -am 'Automatic Rebuild index from README.md';
-    git push; git checkout master;
--->
