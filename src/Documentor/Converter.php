@@ -49,24 +49,12 @@ class Converter
         return ltrim((string) $fullName, '\\');
     }
 
-    protected function parseExtended($class)
+    protected function parseParent($raw)
     {
         $list = [];
-        if (isset($class->extends)) {
-             foreach($class->extends as $parent) {
+        if (!empty($raw)) {
+             foreach($raw as $parent) {
                 $list[] = ltrim((string)$parent, '\\');
-            }
-        }
-
-        return $list;
-    }
-
-    protected function parseImplements($class)
-    {
-        $list = [];
-        if (isset($class->implements)) {
-            foreach($class->implements as $interface) {
-                $list[] = ltrim((string)$interface, '\\');
             }
         }
 
@@ -84,8 +72,8 @@ class Converter
                 'namespace'       => $class['namespace'],
                 'description'     => $class->docblock->description,
                 'longDescription' => $class->docblock->{'long-description'},
-                'implements'      => $this->parseImplements($class),
-                'extends'         => $this->parseExtended($class),
+                'implements'      => $this->parseParent($class->implements),
+                'extends'         => $this->parseParent($class->extends),
                 'methods' => $this->parseMethods($class),
             ];
         }
