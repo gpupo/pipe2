@@ -14,7 +14,7 @@
 
 namespace Gpupo\Pipe2;
 
-abstract class DocumentAbstract extends \DOMDocument
+abstract class DocumentAbstract extends \DOMDocument implements DocumentInterface
 {
     public $docset;
 

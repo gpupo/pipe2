@@ -14,7 +14,7 @@
 
 namespace Gpupo\Pipe2\Traits;
 
-use Gpupo\Pipe2\DocumentAbstract;
+use Gpupo\Pipe2\DocumentInterface;
 
 trait DocumentContainerTrait
 {
@@ -25,7 +25,7 @@ trait DocumentContainerTrait
         return $this->document;
     }
 
-    protected function setDocument(DocumentAbstract $document, $formatOutput = false)
+    protected function setDocument(DocumentInterface $document, $formatOutput = false)
     {
         $this->document = $document;
         $this->document->formatOutput = $formatOutput;

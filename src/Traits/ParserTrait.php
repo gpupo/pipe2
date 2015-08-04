@@ -33,7 +33,7 @@ trait ParserTrait
         return $item;
     }
 
-    protected function parserFromFile($filePath)
+    protected function parserFromFile($filePath, $key = 'item')
     {
         $list = [];
 
@@ -48,7 +48,7 @@ trait ParserTrait
             xml_parser_free($parser);
 
             foreach ($index as $k => $v) {
-                if ($k === 'item') {
+                if ($k === $key) {
                     for ($i = 0; $i < count($v); $i += 2) {
                         $count = (empty($count) ? $v[$i] : ++$count);
                         $offset = $v[$i] + 1;
@@ -57,7 +57,7 @@ trait ParserTrait
                         $item = $this->fieldReduce(array_slice($values, $offset, $len));
 
                         if (!empty($item)) {
-                            $list[$count]['item'] = $item;
+                            $list[$count][$key] = $item;
                         }
                     }
 

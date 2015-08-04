@@ -18,6 +18,7 @@ use Symfony\Component\Console\Application;
 $application = new Application('Pipe2 - XML tool', '@package_version@');
 $application->add(new Converter\Command());
 $application->add(new Merge\Attributes\Command());
+$application->add(new Documentor\Command());
 $application->add(new GenerateCommand());
 
 $application->run();
