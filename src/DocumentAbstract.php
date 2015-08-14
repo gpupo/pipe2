@@ -16,15 +16,15 @@ namespace Gpupo\Pipe2;
 
 abstract class DocumentAbstract extends \DOMDocument implements DocumentInterface
 {
+    const ENCONDING = 'utf-8';
+    
     public $docset;
-
-    protected $encoding = 'utf-8';
 
     protected $elementPrefix = '';
 
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct("1.0", self::ENCONDING);
         $comment = $this->createComment(' Generate by Pipe2 on ['.date('r')
             .'] | For more information, see <http://www.g1mr.com/pipe2/> ');
         $this->appendChild($comment);

@@ -14,7 +14,6 @@
 
 namespace Gpupo\Pipe2\Merge\Attributes;
 
-use Gpupo\Common\Entity\Collection;
 use Gpupo\Common\Entity\CollectionInterface;
 use Gpupo\Pipe2\Traits\DocumentContainerTrait;
 use Gpupo\Pipe2\Traits\ParserTrait;
@@ -33,16 +32,21 @@ class Combiner
 
     public function __construct(Array $parameters)
     {
-        $this->setDocument(new Document(), $parameters['formatOutput']);
         $this->idField = $parameters['idField'];
         $firstDocument = $this->factoryCollectionFromFilePath($parameters['firstDocument']);
         $secondDocument = $this->factoryCollectionFromFilePath($parameters['secondDocument']);
+        $this->setDocument(new Document($firstDocument->getMeta()), $parameters['formatOutput']);
         $this->appendItens($this->combine($firstDocument, $secondDocument));
     }
 
     protected function factoryCollectionFromFilePath($filePath)
     {
-        return new Collection($this->parserProcess($this->parserFromFile($filePath)));
+        $data = $this->parserFromFile($filePath);
+
+        $collection  =  new Collection($this->parserProcess($data));
+        $collection->setMeta($this->parserMetas($data));
+
+        return $collection;
     }
 
     protected function hasKey($item)
@@ -72,6 +76,25 @@ class Combiner
             if ($this->hasKey($item)) {
                 $list[$item[$this->getIdField()]] = new Collection($item);
             }
+        }
+
+        return $list;
+    }
+
+    protected function parserMetas(Array $raw)
+    {
+        $list = [];
+
+        foreach ($raw as $data) {
+            if ($data['tag'] === 'item') {
+                continue;
+            }
+            if (array_key_exists('attributes', $data)) {
+                $list[$data['tag']] = $data['attributes'];
+            } else if(array_key_exists('value', $data)) {
+                $list[$data['tag']] = $data['value'];
+            }
+
         }
 
         return $list;

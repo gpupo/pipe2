@@ -1,10 +1,10 @@
-<?xml version="1.0"?>
-<!-- Generate by Pipe2 on [Fri, 14 Aug 2015 14:11:09 -0300] | For more information, see <http://www.g1mr.com/pipe2/> -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generate by Pipe2 on [Fri, 14 Aug 2015 15:29:35 -0300] | For more information, see <http://www.g1mr.com/pipe2/> -->
 <rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
-    <title/>
-    <description/>
-    <link/>
+    <title>foo</title>
+    <description>foo</description>
+    <link>foo</link>
     <item id="292">
       <g:id>292</g:id>
       <title><![CDATA[Acme Anvil]]></title>

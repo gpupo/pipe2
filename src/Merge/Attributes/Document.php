@@ -18,17 +18,33 @@ use Gpupo\Pipe2\DocumentAbstract;
 
 class Document extends DocumentAbstract
 {
-    public function __construct()
+    public function __construct(Collection $meta)
     {
-        parent::__construct("1.0", "utf-8");
+        parent::__construct();
         $this->docset = $this->createElement('channel');
         $rss = $this->createElement('rss');
-        $rss->setAttribute("xmlns:g","http://base.google.com/ns/1.0");
-        $rss->setAttribute("version", "2.0");
 
-        foreach(['title', 'description', 'link'] as $key) {
-            $new = $this->createElement($key);
-            $this->docset->appendChild($new);
+        if ($meta->containsKey('rss')) {
+            foreach($meta->get('rss') as $attr => $value) {
+                $rss->setAttribute($attr, $value);
+            }
+        }
+
+        foreach($meta as $key => $value) {
+
+            if (empty($value)){
+                continue;
+            }
+
+            if (is_array($value)) {
+
+            } else {
+                $new = $this->createElement($key, $value);
+            }
+            if (isset($new)) {
+                $this->docset->appendChild($new);
+                unset($new);
+            }
         }
 
         $rss->appendChild($this->docset);
