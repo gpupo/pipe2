@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
-<!--Generate by Pipe2 on Thu, 16 Jul 2015 09:20:51 -0300 | See https://github.com/gpupo/pipe2-->
-<rss>
+<!-- Generate by Pipe2 on [Fri, 14 Aug 2015 14:11:09 -0300] | For more information, see <http://www.g1mr.com/pipe2/> -->
+<rss xmlns:g="http://base.google.com/ns/1.0" version="2.0">
   <channel>
+    <title/>
+    <description/>
+    <link/>
     <item id="292">
       <g:id>292</g:id>
       <title><![CDATA[Acme Anvil]]></title>
@@ -30,11 +33,13 @@ The principle of the anvil also is of particular interest in biology and in etho
       <g:size><![CDATA[50ml]]></g:size>
       <g:shipping_weight><![CDATA[10.30 kg]]></g:shipping_weight>
       <g:online_only><![CDATA[y]]></g:online_only>
-      <g:months>12</g:months>
-      <g:amount>24.13</g:amount>
       <g:product_review_count>14</g:product_review_count>
       <g:product_review_average>5</g:product_review_average>
       <video><![CDATA[https://www.youtube.com/results?search_query=acme%20anvil%20cartoon]]></video>
+      <g:installment>
+        <g:months>12</g:months>
+        <g:amount>24.13</g:amount>
+      </g:installment>
     </item>
   </channel>
 </rss>

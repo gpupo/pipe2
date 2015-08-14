@@ -30,6 +30,13 @@ abstract class DocumentAbstract extends \DOMDocument implements DocumentInterfac
         $this->appendChild($comment);
     }
 
+    /**
+     * Factory DOMElement
+     * @param  string $type
+     * @param  string $key
+     * @param  mixed $prop
+     * @return \DOMElement
+     */
     protected function factoryTag($type, $key, $prop)
     {
         $tag = $this->createElement($this->elementPrefix.$type);

@@ -1,0 +1,237 @@
+<grammar ns="" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="rss" xmlns:g="http://base.google.com/ns/1.0">
+            <attribute name="version">
+                <data type="decimal"/>
+            </attribute>
+            
+            <element name="channel">
+                <element name="title">
+                    <data type="token"/>
+                </element>
+                
+                <element name="description">
+                    <data type="token"/>
+                </element>
+                
+                <element name="link">
+                    <data type="anyURI"/>
+                </element>
+                
+                <oneOrMore>
+                    <element name="item">
+                        <element name="g:id">
+                            <data type="long"/>
+                        </element>
+                        
+                        <element name="title">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="description">
+                            <data type="token"/>
+                        </element>
+                        
+                        <optional>
+                            <element name="g:google_product_category">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <element name="g:product_type">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="link">
+                            <data type="anyURI"/>
+                        </element>
+                        
+                        <element name="g:image_link">
+                            <data type="anyURI"/>
+                        </element>
+                        <optional>
+                            <oneOrMore>
+                                <element name="g:additional_image_link">
+                                    <data type="anyURI"/>
+                                </element>
+                            </oneOrMore>
+                        </optional>
+                        
+                        <element name="g:condition">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="g:availability">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="g:price">
+                            <data type="decimal"/>
+                        </element>
+                        
+                        <optional>
+                            <element name="g:sale_price">
+                                <data type="decimal"/>
+                            </element>
+                            <optional>
+                                <element name="g:sale_price_effective_date">
+                                    <data type="token"/>
+                                </element>
+                            </optional>
+                        </optional>
+                        
+                        <element name="g:brand">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="g:gtin">
+                            <data type="integer"/>
+                        </element>
+                        
+                        <optional>
+                            <element name="g:mpn">
+                                <data type="integer"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:gender">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <element name="g:age_group">
+                            <data type="token"/>
+                        </element>
+                        
+                        <optional>
+                            <element name="g:color">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:size">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:item_group_id">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:material">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:pattern">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:tax">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:shipping">
+                                <element name="g:country">
+                                    <data type="token"/>
+                                </element>
+                                
+                                <element name="g:region">
+                                    <data type="token"/>
+                                </element>
+                                
+                                <element name="g:service">
+                                    <data type="token"/>
+                                </element>
+                                
+                                <element name="g:price">
+                                    <data type="decimal"/>
+                                </element>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:shipping_weight">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:adwords_grouping">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <oneOrMore>
+                                <element name="g:adwords_labels">
+                                    <data type="token"/>
+                                </element>
+                            </oneOrMore>
+                        </optional>
+                        
+                        <element name="g:adwords_redirect">
+                            <data type="token"/>
+                        </element>
+                        
+                        <element name="g:online_only">
+                            <data type="token"/>
+                        </element>
+                        
+                        <optional>
+                            <element name="g:loyalty_points">
+                                <data type="integer"/>
+                            </element>
+                        </optional>
+                        
+                        <oneOrMore>
+                            <element name="g:installment">
+                                <element name="g:months">
+                                    <data type="integer"/>
+                                </element>
+                                
+                                <element name="g:amount">
+                                    <data type="decimal"/>
+                                </element>
+                            </element>
+                        </oneOrMore>
+                        
+                        <optional>
+                            <element name="g:excluded_destination">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:expiration_date">
+                                <data type="token"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:product_review_count">
+                                <data type="integer"/>
+                            </element>
+                        </optional>
+                        
+                        <optional>
+                            <element name="g:product_review_average">
+                                <data type="integer"/>
+                            </element>
+                        </optional>
+                    </element>
+                </oneOrMore>
+            </element>
+        </element>
+    </start>
+</grammar>

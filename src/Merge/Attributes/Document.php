@@ -20,9 +20,17 @@ class Document extends DocumentAbstract
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct("1.0", "utf-8");
         $this->docset = $this->createElement('channel');
         $rss = $this->createElement('rss');
+        $rss->setAttribute("xmlns:g","http://base.google.com/ns/1.0");
+        $rss->setAttribute("version", "2.0");
+
+        foreach(['title', 'description', 'link'] as $key) {
+            $new = $this->createElement($key);
+            $this->docset->appendChild($new);
+        }
+
         $rss->appendChild($this->docset);
         $this->appendChild($rss);
     }

@@ -15,6 +15,7 @@
 namespace Gpupo\Pipe2\Traits;
 
 use Gpupo\Pipe2\DocumentInterface;
+use \DOMElement;
 
 trait DocumentContainerTrait
 {
@@ -33,6 +34,46 @@ trait DocumentContainerTrait
         return $this;
     }
 
+    private $_documentElementTree = [];
+
+    protected function documentElementTreeAppend(DOMElement $tag, $parent)
+    {
+        if (!array_key_exists($parent, $this->_documentElementTree)) {
+            $this->_documentElementTree[$parent] = $this->document->createElement($parent);
+        }
+
+        $this->_documentElementTree[$parent]->appendChild($tag);
+
+        return $this;
+    }
+
+    protected function documentElementTreeList()
+    {
+        return [
+            'g:installment' => ['g:months', 'g:amount'],
+        ];
+    }
+
+    protected function documentElementTreeGetParent($key)
+    {
+        foreach ($this->documentElementTreeList() as $name => $array) {
+            if (in_array($key, $array)) {
+                return $name;
+            }
+        }
+
+        return false;
+    }
+
+    protected function documentElementTreeFinal(DOMElement $itemElement)
+    {
+        foreach ($this->_documentElementTree as $element) {
+            $itemElement->appendChild($element);
+        }
+
+        return $itemElement;
+    }
+
     protected function populateDocument($itemElement, $item)
     {
         foreach ($item as $key => $value) {
@@ -43,11 +84,15 @@ trait DocumentContainerTrait
             } else {
                 $tag->appendChild($this->document->createCDATASection($value));
             }
-
-            $itemElement->appendChild($tag);
+            $parent = $this->documentElementTreeGetParent($key);
+            if (!empty($parent)) {
+                $this->documentElementTreeAppend($tag, $parent);
+            } else {
+                $itemElement->appendChild($tag);
+            }
         }
 
-        $this->document->docset->appendChild($itemElement);
+        $this->document->docset->appendChild($this->documentElementTreeFinal($itemElement));
 
         return $this;
     }

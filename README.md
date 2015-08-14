@@ -36,6 +36,11 @@ Merge XML Documents with *Similar Structure* Where Second Document Contains *Att
 >  and [data/merge/attributes/secondDocument.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/secondDocument.xml)
 >  and creates the **output** sample file [data/merge/attributes/output.xml](https://github.com/gpupo/pipe2/blob/master/data/merge/attributes/output.xml)
 
+Generate Markdown Documentation from PhpUnit XML
+
+    phpdoc -d ./src/ -t ./build/ --template="xml" --cache-folder=/tmp;
+    pipe2 documentor build/structure.xml Api.md;
+
 
 ### Advanced
 
