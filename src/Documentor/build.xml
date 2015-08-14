@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Example" default="build">
+ <target name="api-doc" depends="struture-doc,pipe2-doc"/>
+ <target name="phpdoc.phar" depends="phpdoc.check" unless="phpdoc.file.exists">
+   <get src="http://www.phpdoc.org/phpDocumentor.phar" dest="${basedir}/phpDocumentor.phar" skipexisting="false"/>
+ </target>
+ <target name="phpdoc.check">
+   <condition property="phpdoc.file.exists">
+     <available file="${basedir}/phpDocumentor.phar" type="file" />
+   </condition>
+ </target>
+ <target name="struture-doc" depends="phpdoc.phar" description="Build API XML">
+     <exec executable="php">
+         <arg value="${basedir}/phpDocumentor.phar"/>
+         <arg value="-d ${basedir}/src/"/>
+         <arg value="-t ${basedir}/build/"/>
+         <arg value="--template=xml"/>
+         <arg value="--cache-folder=/tmp"/>
+     </exec>
+ </target>
+ <target name="pipe2.phar" depends="pipe2.check" unless="pipe2.file.exists">
+   <get src="https://github.com/gpupo/pipe2/releases/download/1.1/pipe2.phar" dest="${basedir}/pipe2.phar" skipexisting="false"/>
+ </target>
+ <target name="pipe2.check">
+   <condition property="pipe2.file.exists">
+     <available file="${basedir}/pipe2.phar" type="file" />
+   </condition>
+ </target>
+ <target name="pipe2-doc" depends="pipe2.phar" description="Build API Documentation">
+     <exec executable="php">
+         <arg value="${basedir}/pipe2.phar"/>
+         <arg value="documentor ${basedir}/build/struture.xml"/>
+         <arg value="${basedir}/API.md"/>
+     </exec>
+ </target>
+</project>

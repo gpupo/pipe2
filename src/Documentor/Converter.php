@@ -99,8 +99,12 @@ class Converter
             $data = get_object_vars($argument);
 
             if($data['type'] && is_object($data['type'])) {
-                $data[$type] = get_object_vars($data[$type]);
+                $data['type'] = get_object_vars($data[$type]);
             }
+
+            $filter = 'docblock/tag[@name="param" and @variable="' . $data['name'] . '"]';
+
+            $tag = $method->xpath($filter);
 
             $list[] = $data;
         }
