@@ -91,10 +91,9 @@ class Combiner
             }
             if (array_key_exists('attributes', $data)) {
                 $list[$data['tag']] = $data['attributes'];
-            } else if(array_key_exists('value', $data)) {
+            } elseif (array_key_exists('value', $data)) {
                 $list[$data['tag']] = $data['value'];
             }
-
         }
 
         return $list;

@@ -14,8 +14,8 @@
 
 namespace Gpupo\Pipe2\Traits;
 
+use DOMElement;
 use Gpupo\Pipe2\DocumentInterface;
-use \DOMElement;
 
 trait DocumentContainerTrait
 {
@@ -57,7 +57,7 @@ trait DocumentContainerTrait
     protected function documentElementTreeGetParent($key)
     {
         foreach ($this->documentElementTreeList() as $name => $array) {
-            if (in_array($key, $array)) {
+            if (in_array($key, $array, true)) {
                 return $name;
             }
         }

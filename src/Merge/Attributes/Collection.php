@@ -14,7 +14,6 @@
 
 namespace Gpupo\Pipe2\Merge\Attributes;
 
-use Gpupo\Pipe2\DocumentAbstract;
 use Gpupo\Common\Entity\CollectionAbstract;
 use Gpupo\Common\Entity\CollectionInterface;
 
@@ -24,7 +23,7 @@ class Collection extends CollectionAbstract implements CollectionInterface
 
     public function setMeta(Array $meta)
     {
-        $this->meta = new Collection($meta);
+        $this->meta = new self($meta);
     }
 
     public function getMeta()

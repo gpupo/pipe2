@@ -53,8 +53,8 @@ class Converter
     {
         $list = [];
         if (!empty($raw)) {
-             foreach($raw as $parent) {
-                $list[] = ltrim((string)$parent, '\\');
+            foreach ($raw as $parent) {
+                $list[] = ltrim((string) $parent, '\\');
             }
         }
 
@@ -74,7 +74,7 @@ class Converter
                 'longDescription' => $class->docblock->{'long-description'},
                 'implements'      => $this->parseParent($class->implements),
                 'extends'         => $this->parseParent($class->extends),
-                'methods' => $this->parseMethods($class),
+                'methods'         => $this->parseMethods($class),
             ];
         }
 
@@ -98,11 +98,11 @@ class Converter
         foreach ($method->argument as $argument) {
             $data = get_object_vars($argument);
 
-            if($data['type'] && is_object($data['type'])) {
+            if ($data['type'] && is_object($data['type'])) {
                 $data['type'] = get_object_vars($data[$type]);
             }
 
-            $filter = 'docblock/tag[@name="param" and @variable="' . $data['name'] . '"]';
+            $filter = 'docblock/tag[@name="param" and @variable="'.$data['name'].'"]';
 
             $tag = $method->xpath($filter);
 
@@ -119,7 +119,7 @@ class Converter
             'description' => (string) $method->docblock->description."\n\n".(string) $method->docblock->{'long-description'},
             'visibility'  => (string) $method['visibility'],
             'static'      => ((string) $method['static']) === 'true',
-            'arguments' => $this->parseArgument($method),
+            'arguments'   => $this->parseArgument($method),
         ]);
     }
 }

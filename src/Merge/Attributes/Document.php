@@ -25,19 +25,17 @@ class Document extends DocumentAbstract
         $rss = $this->createElement('rss');
 
         if ($meta->containsKey('rss')) {
-            foreach($meta->get('rss') as $attr => $value) {
+            foreach ($meta->get('rss') as $attr => $value) {
                 $rss->setAttribute($attr, $value);
             }
         }
 
-        foreach($meta as $key => $value) {
-
-            if (empty($value)){
+        foreach ($meta as $key => $value) {
+            if (empty($value)) {
                 continue;
             }
 
             if (is_array($value)) {
-
             } else {
                 $new = $this->createElement($key, $value);
             }
