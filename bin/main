@@ -8,14 +8,19 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
+ * For more information, see
+ * <http://www.g1mr.com/pipe2/>.
  */
+
 namespace Gpupo\Pipe2;
 
 require __DIR__.'/../vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
+use Gpupo\Pipe2\Console\Application;
 
 $application = new Application('Pipe2 - XML tool', '@package_version@');
+$application->findConfig([ __DIR__.'/../'], 'pipe2');
 $application->add(new Converter\Command());
 $application->add(new Merge\Attributes\Command());
 $application->add(new Documentor\Command());

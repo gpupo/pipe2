@@ -469,16 +469,16 @@
         },
         {
             "name": "gpupo/common",
-            "version": "1.5.0",
+            "version": "1.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/gpupo/common.git",
-                "reference": "36a62fbe634ae0d3ae512ac82578689b1583cac0"
+                "reference": "8fd4288f4746ab4cf5babbd33a9b0bcccf74f1c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/gpupo/common/zipball/36a62fbe634ae0d3ae512ac82578689b1583cac0",
-                "reference": "36a62fbe634ae0d3ae512ac82578689b1583cac0",
+                "url": "https://api.github.com/repos/gpupo/common/zipball/8fd4288f4746ab4cf5babbd33a9b0bcccf74f1c5",
+                "reference": "8fd4288f4746ab4cf5babbd33a9b0bcccf74f1c5",
                 "shasum": ""
             },
             "require": {
@@ -511,7 +511,7 @@
             "keywords": [
                 "common"
             ],
-            "time": "2015-08-06 14:40:40"
+            "time": "2015-08-18 20:52:15"
         },
         {
             "name": "gpupo/common-schema",
