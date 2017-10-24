@@ -1,11 +1,11 @@
 {
     "name": "gpupo/pipe2",
     "description": "Convert Google Shopping XML format to XMLPipe2 format",
-    "homepage": "http://www.g1mr.com/pipe2/",
+    "homepage": "https://opensource.gpupo.com/pipe2/",
     "authors": [
         {
             "name": "Gilmar Pupo",
-            "email": "g@g1mr.com"
+            "email": "contact@gpupo.com"
         }
     ],
     "keywords": ["sphinx", "xml", "xmlpipe2"],

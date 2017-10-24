@@ -7,7 +7,7 @@ XML command line Tool
 
 ## Installation
 
-The *[Pipe2](http://www.g1mr.com/pipe2/)* is a small PHP application that must be installed once in your computer.
+The *[Pipe2](https://opensource.gpupo.com/pipe2/)* is a small PHP application that must be installed once in your computer.
 
 Installation on Linux and Mac OS X
 
